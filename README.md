@@ -1,108 +1,253 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Project Portfolio 4 - 
 
-Welcome USER_NAME,
+Purpose:
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Aim:
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Responsive Mockup](./assets/images/readme/responsive_mockup.jpeg/)
 
-## Gitpod Reminders
+The live link can be found here - <insert link>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## 1. Design and Development
 
-`python3 -m http.server`
+For the design of this <application>, the 5 pillars of User Experience Design (UXD) were used to cover the strategy, scope, structure, skeleton and surface to make sure the design is intuitive, simple and enjoyable.
 
-A blue button should appear to click: _Make Public_,
+### 1.1 Strategy
 
-Another blue button should appear to click: _Open Browser_.
+Initial interviews with the stakeholder were conducted to understand their high-level requirements for the app. This allowed further research to be conducted into user profiles / groups benefitting.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The target user audience…
 
-A blue button should appear to click: _Make Public_,
+Competitor research was then carried out...
 
-Another blue button should appear to click: _Open Browser_.
+### 1.2 Scope
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+A brainstorming session was held with the customer to generate user themes and epics, which user stories can then be generated from. Once the user stories had been generated and confirmed, they were prioritised and time bound. For a full list of all user stories, please click [here](https://github.com/AlyshaJohnson/project-portfolio-4/issues?q=).
 
-To log into the Heroku toolbelt CLI:
+The SP, or Story Point, is a relative prediction of the time taken to complete the user story against a baseline. The baseline user story was <insert user story>.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+To complete all user stories, the predicted time it would take would be <insert no of weeks> weeks. As the customer required a release date of the 1st December 2022, a minimum set of user stories were agreed and reviewed weekly based on <insert no. of SPs> story points possible in the time frame. The final agreed set of user stories were:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+User story #    Title   Description Priority    SP Epic
 
-------
+### 1.3 Structure
 
-## Release History
+From the user stories, content, data, features and functionality can be determined.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+**For the content:**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+**Data Model:**
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+**For the features / functionality:**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### 1.4 Skeleton
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+When the structure of the app, features and data model had been determined, a wireframe for each view could be created:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<insert view of app/website>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### 1.5 Surface
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+**Colour Palette**
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Colour Palette](./assets/images/readme/color.jpeg)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- The quiz's primary colours are (from left to right) #13443E, #EFEFEF, #F4D1AF and #E86E4C as seen in the picture above. They were derived using the online tool [colormind](http://colormind.io/), to make sure they complement and contrast. The colors are all nuances of green or orange, to mirror nature and enhance the connection with the being green.
+- #13443E is used for headlines and text throughtout the quiz, unless a hyperlink, and as a border colour to emphasise buttons or sections of text. On hover and selection, all buttons turn the colour #13443E to show they are active. It is also used, in conjunction with an opacity of 0.5, as an overlay when the instructions pop-up is active.
+- #EFEFEF is used as the main background colour for the webpage, the instructions pop up and on buttons. On selection or hover on buttons, the text is changed to #EFEFEF to contrast with it's background.
+- #F4D1AF is used as a contrasting background color for the question and results sections.
+- #E86E4C is used minimally to highlight links away from the quiz. It is a brighter colour to contrast with the green.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+**Typography**
+- Quicksand is used for headings and header elements. The fallback font is sans serif.
+- Dosis is used for all other text elements including paragraphs, button labels, lists, etc. The fallback font is sans serif.
+- Both fonts are from Google Fonts.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## 2. Technologies used
 
-------
+Several technologies were used to aid the project:
 
-## FAQ about the uptime script
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- Used as the basic building block for the project and to structure the content.
+- [CSS](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
+- Used to style all the web content across the project. 
+- [Google Fonts](https://fonts.google.com/)
+- Used to obtain the fonts in website
+- [Font Awesome](https://fontawesome.com/)
+- Used to obtain the icons used throughout website.
+- [GitHub](https://github.com/)
+- Used to store code for the project after being pushed.
+- [Git](https://git-scm.com/)
+- Used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
+- [Gitpod](https://www.gitpod.io/)
+- Used as the development environment.
+- [Balsamiq](https://balsamiq.com/)
+- Used to create the wireframes for the project.
+- [Colormind](http://colormind.io/)
+- Used to determine colour palette throughout website.
+- [Tiny.png](https://tinypng.com/)
+- Used to compress my images so that the page would load faster.
+- [Techsini](http://techsini.com/multi-mockup/index.php)
+- Used to generate multi-device mockup.
+- [Freeformatter CSS Beautify](https://www.freeformatter.com/css-beautifier.html)
+- Used to accurately format CSS code.
+- [Freeformatter HTML Formatter](https://www.freeformatter.com/html-formatter.html)
+- Used to accurately format HTML code.
+- [Python](https://www.python.org/)
+- Python is the core programming language used to write all of the code in this game to make it fully functional.
+- [Heroku](https://dashboard.heroku.com/apps)
+- Used to deploy the app
+- [PythonTutor](https://pythontutor.com/)
+- Used to visualise the flow of code as it is executed
+- [Pep8](http://pep8online.com/)
+- Used to test my code for any issues or errors.
 
-**Why have you added this script?**
+## 3. Features
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+### 3.1 Existing Features
 
-**How will this affect me?**
+The features deployed for this quiz are as follows:
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+<insert feature descriptions and images>
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### 3.2 Future Features
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+There is an addition of <insert no. of weeks> weeks worth of work still to perform to give the customer everything they require. This includes the following user stories:
 
-**So….?**
+User story #    Title   Description Priority    SP Epic
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## 4. Testing
 
-**Can I opt out?**
+Multiple layers of testing were performed on this project including:
+- TDD testing
+- Bug capturing during development
+- Input form validation
+- API mocking
+- Code validation testing 
+- User experience tesing
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### 4.1 Initial Developer Testing
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+As the project was developed and coded, developer testing was conducted to reduce the impact of bugs and errors in the code. This testing consisted of general debugging of written code based off gitpod IDE recommendations; running through input validator testing scenarios to check for input errors; and testing on different browsers.
 
-**Anything more?**
+**General Debugging**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Bugs were captured throughout the course of the project using the 'issues' object within GitHub. 
 
----
+**Input Validator Testing**
 
-Happy coding!
+**Browser / Device testing**
+
+The development of this app was conducted on Google Chrome, therefore extensive testing was conducted on this browser. This was used as a benchmark against Firefox and Safari.
+
+The elements of testing conducted on each browser are:
+<insert list of testing performed and why - see example below>
+- User Experience - what does the quiz look like; is the flow through the quiz the same; are all elements where they are expected?
+- Functionality - do the buttons work as expected; does the question counter count?
+- Performance - how responsive is the site?
+
+The user experience is consistent on Chrome, Firefox and Safari. The instruction videos in Safari do not load - this bug has been captured.
+
+Responsive design is important, CSS code had to be amended and adjusted to make sure the app could work on a number of devices. There were a number of user experience bugs that were produced when testing. These have now been fixed in the code.
+
+### 4.2 Code Validation Testing
+
+Using tools such as W3C validator, Jigsaw and Lighthouse gives visibility of any code, scripts or elements that are causing any errors. The results for the site are as follows:
+
+**HTML**
+- <insert report number> errors were returned when passing through the official [W3C validator](<insert link to report>)
+
+**CSS**
+- <insert report number> errors were found when passing through the official [(Jigsaw) validator](<insert link to report>)
+
+**JS**
+- [JSHint](https://jshint.com/) was used to check for errors in the JS code.
+- For script.js, there were <insert report number> errors and <insert report number> warnings.
+- For instructions.js, there were <insert report number> errors and <insert report number> warnings.
+<insert any methods used to reduce number of errors and warnings>
+
+**Performance**
+- Results can be seen through the official [Lighthouse](<insert link to report>) report.
+
+As part of the performance test through Lighthouse, some changes were made:
+- Accessibility (aria-label) tags were implemented on all buttons to improve the score from 82 to 100.
+- The cache policy was amended to increase the length of number of seconds the browser should cache the resource.
+- The image file sizes needed to be compressed so reduce the impact on performance. This was successfully done using [tinyPNG](https://tinypng.com/).
+
+### 4.3 User Testing
+This app has been tested by a small group of 10 users in which some feedback was captured in the design and some errors in functionality and spelling were corrected.
+
+UI improvements made:
+- <list any improvements to UI that were made here>
+
+Errors / bug fixes:
+- <list errors/bugs that were found, what the problem was and how they were fixed>
+
+### 4.4 Unfixed Bugs
+
+- <list unfixed bugs here>
+
+## 5. Deployment
+
+This website was deployed using GitPages and following the below steps:
+
+GitHub pages deployment
+1. Log in to GitHub
+2. In the Repository section, select the project repository that you want to deploy
+3. In the menu located at the top of this section, click 'Settings'
+4. Select 'Pages' on the left-hand menu - this is around halfway down
+5. In the source section, select branch 'Master' and save
+6. The page is then given a site URL which will be seen above the source section, it will look like the following:
+
+![](./assets/images/readme/github_deployment.jpeg/)
+
+Please note it can take a while for this link to become fully active.
+
+Forking the GitHub Repository
+To make changes to this repository without affecting it, a copy can be made by 'Forking' it. This ensures the original repository remains unchanged.
+1. Find the relevant GitHub repository
+2. In the top right corner of the page, click the Fork button (under account)
+3. The repository has now been 'Forked' and you have a copy to work on
+
+Cloning the GitHub Repository
+Cloning a repository will allow a local version of the repository will be downloaded so can be worked on. Cloning is also a great way to backup work.
+1. Find the relevant GitHub repository
+2. Press the arrow on the Code button
+3. Copy the link that is shown in the drop-down
+4. Now open Gitpod & select the directory location
+5. In the terminal type 'git clone' & then paste the link copied from GitHub
+6. Press enter and a local clone will be created.
+
+The ‘<insert app name>’ was deployed with the help of the Heroku app.
+
+## 6. Credits
+
+### 6.1 Content
+
+Logos and Fonts:
+- The fonts were taken from [GoogleFonts](https://fonts.google.com/)
+- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+
+Tutorials and support:
+- General guidance, information and limitations on elements, attributes, and methods from [w3schools](https://www.w3schools.com/default.asp) and [MDN Web Docs](https://developer.mozilla.org/en-US/)
+- <insert list of tutorials followed>
+- The many people who 'beta tested' the quiz app.
+
+### 6.2 Media
+
+Any photos used throughout the app are stock imagery from the following services:
+- [unsplash](https://unsplash.com/)
+- [FreeImages](https://www.freeimages.com/)
+- [PikWizard](https://pikwizard.com/)
+
+<insert any other media used throughout the app/site here>
+
+### 6.3 Research
+
+As mentioned in the design section, competitor research was conducted. These are credited below:
+- <insert list of research links>
+
+### 6.4 Special Thanks
