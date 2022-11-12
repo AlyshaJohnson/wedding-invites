@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from invite.views import get_invite, get_sign_in
+from invite.views import get_invite, get_sign_in, register_request
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', get_sign_in, name='get_sign_in'),
-    path('invite/', get_invite, name='get_invite')
+    path('invite/', get_invite, name='get_invite'),
+    path("register/", register_request, name="register")
 ]
