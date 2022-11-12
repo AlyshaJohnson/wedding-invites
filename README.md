@@ -250,4 +250,6 @@ Any photos used throughout the app are stock imagery from the following services
 As mentioned in the design section, competitor research was conducted. These are credited below:
 - <insert list of research links>
 
+https://realpython.com/customize-django-admin-python/
+
 ### 6.4 Special Thanks

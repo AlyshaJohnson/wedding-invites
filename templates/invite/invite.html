@@ -1,0 +1,35 @@
+{% extends "invite/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="offset-1 col-10">
+        <div class="container bg-info">
+            <p>Dear {{ Guest.name }},</p>
+            <p>{{ Wedding.to_be_wed1 }} and {{ Wedding.to_be_wed2 }} would like to invite you to their wedding.</p>
+            <p>It will be held on {{ Wedding.wedding_date }}</p>
+            <p>The ceremony will take place at {{ Wedding.venue1 }}, followed by the wedding breakfast at {{ Wedding.venue2 }}.</p>
+            <p>We hope that you can join us</p>
+            <p>Please RSVP here:</p>
+            <form action="POST">
+                <div>
+                    <label for="RSVP_comment"></label>
+                    <textarea name="RSVP_comment" id="RSVP_comment" cols="70" rows="5"
+                        placeholder="Message to {{ Wedding.to_be_wed1 }} and {{ Wedding.to_be_wed2 }}">{{ Guest.RSVP_comment }}</textarea>
+                </div>
+                <div>
+                    {% if Guest.RSVP == True %}
+                    <button type="submit" class="btn btn-dark">I would love to come</button>
+                    <button type="submit" class="btn btn-outline-dark">I cannot make it</button>
+                    {% elif Guest.RSVP == False %}
+                    <button type="submit" class="btn btn-outline-dark">I would love to come</button>
+                    <button type="submit" class="btn btn-dark">I cannot make it</button>
+                    {% else %}
+                    <button type="submit" class="btn btn-outline-dark">I would love to come</button>
+                    <button type="submit" class="btn btn-outline-dark">I cannot make it</button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
