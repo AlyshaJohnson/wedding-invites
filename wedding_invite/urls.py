@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', get_sign_in, name='get_sign_in'),
-    path('invite/', get_invite, name='get_invite'),
-    path("register/", register_request, name="register")
+    path('invite/<user_id>', get_invite, name='get_invite'),
+    path("register/", register_request, name="register"),
+    path("logout", views.logout_request, name="logout"),
 ]

@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewUserForm
+from .models import Guest
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
@@ -16,14 +17,15 @@ def get_sign_in(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {User.first_name, User.last_name}.")  # noqa
-                return redirect("/invite/")
+                return redirect("/invite/<user_id>")
             else:
                 messages.error(request, "Invalid email or password.")
     form = AuthenticationForm()
     return render(request=request, template_name='invite/index.html', context={"login_form": form})  # noqa
 
 
-def get_invite(request):
+def get_invite(request, user_id):
+    guest = get_object_or_404(Guest, user_id)
     return render(request, 'invite/invite.html')
 
 
@@ -38,3 +40,9 @@ def register_request(request):
         messages.error(request, "Unsuccessful registration. Invalid information.")  # noqa
     form = NewUserForm()
     return render(request=request, template_name="invite/register.html", context={"register_form": form})  # noqa
+
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect("/invite/")

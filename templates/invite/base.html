@@ -22,6 +22,7 @@
             </h1>
         </div>
         <div class="row">
+            {% if user.is_authenticated %}
             <div class="col-md-9">
                 <nav>
                     <ul class="nav justify-content-start">
@@ -52,12 +53,24 @@
                         </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Log out</a>
+                            <a class="nav-link" href="/logout">Log out</a>
                         </li>
                     </ul>
                 </nav>
             </div>
+            {% else %}
+            <div class="offset-9 col-md-3">
+                <nav>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Log in</a>
+                        </li>
+                    </ul>
+            </div>
+            {% endif %}
         </div>
+
+
     </header>
 
     {% block content %}
