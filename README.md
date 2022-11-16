@@ -251,5 +251,6 @@ As mentioned in the design section, competitor research was conducted. These are
 - <insert list of research links>
 
 https://realpython.com/customize-django-admin-python/
+https://ordinarycoders.com/blog/article/django-user-register-login-logout
 
 ### 6.4 Special Thanks
