@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Wedding, Guest
 
 
 class NewUserForm(UserCreationForm):
@@ -21,3 +22,15 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
             return user
+
+
+class RSVP_form(forms.ModelForm):
+    RSVP = forms.NullBooleanField(label="RSVP")
+    RSVP_comment = forms.JSONField(
+        label="RSVP Comment",
+        initial="Send a message to {{ couple }}."
+        )
+
+    class Meta:
+        model = Guest
+        fields = ["RSVP", "RSVP_comment"]

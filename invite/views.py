@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import NewUserForm
-from .models import Guest
+from .forms import NewUserForm, RSVP_form
+from .models import Guest, Wedding
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -12,11 +12,12 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.contrib.auth.decorators import login_required
 
 
 def get_sign_in(request):
     if request.user.is_authenticated:
-        return redirect("/invite/<user_id>")
+        return redirect("/invite/")
     else:
         if request.method == "POST":
             form = AuthenticationForm(request, data=request.POST)
@@ -27,16 +28,11 @@ def get_sign_in(request):
                 if user is not None:
                     login(request, user)
                     messages.info(request, f"You are now logged in as {User.first_name, User.last_name}.")  # noqa
-                    return redirect("/invite/<user_id>")
+                    return redirect("/invite/")
                 else:
                     messages.error(request, "Invalid email or password.")
         form = AuthenticationForm()
     return render(request=request, template_name='invite/index.html', context={"login_form": form})  # noqa
-
-
-def get_invite(request, user_id):
-    guest = get_object_or_404(Guest, user_id)
-    return render(request, 'invite/invite.html')
 
 
 def register_request(request):
@@ -86,3 +82,21 @@ def password_reset_request(request):
             messages.error(request, 'An invalid email has been entered.')
     password_reset_form = PasswordResetForm()
     return render(request=request, template_name="invite/password/password_reset.html", context={"password_reset_form": password_reset_form})  # noqa
+
+
+@login_required(login_url='/')
+def get_invite(request):
+    guest = Guest.objects.filter(user_id=request.user.id).first()
+    wedding = Wedding.objects.filter(active=True).first()
+    if request.method == 'POST':
+        form = RSVPForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/invite/')
+    form = RSVP_form()
+    context = {
+        'form': form,
+        'guest': guest,
+        'wedding': wedding,
+    }
+    return render(request, 'invite/invite.html', context)

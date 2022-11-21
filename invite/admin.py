@@ -12,9 +12,7 @@ admin.site.unregister(Group)
 
 @admin.register(Guest)
 class GuestAdmin(SummernoteModelAdmin):
-    list_display = ("first_name", "last_name", "status", "RSVP", "party_admin", "view_party")  # noqa
-
-    summernote_fields = ('RSVP_comment')
+    list_display = ("user_id", "first_name", "last_name", "status", "RSVP", "party_admin", "view_party")  # noqa
 
     def view_party(self, obj):
         if obj.party_admin == 1:

@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', get_sign_in, name='get_sign_in'),
-    path('invite/<user_id>', get_invite, name='get_invite'),
+    path('invite/', get_invite, name='get_invite'),
     path("register/", register_request, name="register"),
     path("logout", logout_request, name="logout"),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='invite/password/password_reset_done.html'), name='password_reset_done'),  # noqa

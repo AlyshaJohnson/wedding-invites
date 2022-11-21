@@ -61,7 +61,7 @@ class Wedding(models.Model):
     starter1_ingredients = models.TextField(blank=True)
     other_info = models.TextField(max_length=200, unique=False, blank=True)
     starter1_ingredients = models.TextField(blank=True)
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
 
 
 class Food(models.Model):

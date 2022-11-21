@@ -23,7 +23,7 @@
         </div>
         <div class="row">
             {% if user.is_authenticated %}
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <nav>
                     <ul class="nav justify-content-start">
                         <li class="nav-item">
@@ -38,18 +38,15 @@
                     </ul>
                 </nav>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <nav>
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
-                            <p>{{ User.first_name }} {{ User.last_name }}</p>
+                            <a class="nav-link" href="#">{{ user.first_name }} {{ user.last_name }}</a>
                         </li>
+                        {% if user.is_staff == True %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
-                        </li>
-                        {% if User.is_staff == True %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Admin</a>
+                            <a class="nav-link" href="/admin/">Admin</a>
                         </li>
                         {% endif %}
                         <li class="nav-item">
