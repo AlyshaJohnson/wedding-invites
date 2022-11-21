@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>{{ to_be_wed1 }} & {{ to_be_wed2 }} Wedding Invite</title>
+    <title>{{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }} Wedding Invite</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div>
             <img src="" alt="">
             <h1>
-                Wedding
+                {{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}'s Wedding
             </h1>
         </div>
         <div class="row">
@@ -30,7 +30,7 @@
                             <a class="nav-link" href="/invite/">Invitation</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Information</a>
+                            <a class="nav-link" href="/info/">Information</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Gallery</a>

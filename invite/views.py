@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewUserForm, RSVP_form
-from .models import Guest, Wedding
+from .models import Guest, Wedding, Food, Hotel
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -100,3 +100,18 @@ def get_invite(request):
         'wedding': wedding,
     }
     return render(request, 'invite/invite.html', context)
+
+
+@login_required(login_url='/')
+def get_info(request):
+    guest = Guest.objects.filter(user_id=request.user.id).first()
+    wedding = Wedding.objects.filter(active=True).first()
+    food = Food.objects.filter(guest_id=request.user.id).first()
+    hotel = Hotel.objects.all()
+    context = {
+        'guest': guest,
+        'wedding': wedding,
+        'food': food,
+        'hotel': hotel,
+    }
+    return render(request, 'invite/info.html', context)

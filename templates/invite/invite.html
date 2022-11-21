@@ -8,7 +8,7 @@
     <div class="offset-1 col-10">
         <div class="container">
             <p>Dear {{ guest.first_name }},</p>
-            <p>{{ wedding.couple.all }} would like to invite you to their wedding.</p>
+            <p>{{ wedding.couple.first.first_name }} and {{ wedding.couple.last.first_name }} would like to invite you to their wedding.</p>
             <p>It will be held on {{ wedding.wedding_date }}</p>
             <p>The ceremony will take place at {{ wedding.venue1 }}, followed by the wedding breakfast at {{ wedding.venue2 }}.</p>
             <p>We hope that you can join us</p>

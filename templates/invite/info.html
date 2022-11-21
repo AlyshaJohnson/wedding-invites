@@ -1,0 +1,78 @@
+{% extends "invite/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row m-2">
+        <div class="col-md-5 card">
+            <div class="card-body">
+                <h5 class="card-title">Contact</h5>
+                <span>
+                    <p class="card-text">{{ wedding.couple.first.first_name }}</p>
+                    <p class="card-text">{{ wedding.couple.first.email }}</p>
+                </span>
+                <span>
+                    <p class="card-text">{{ wedding.couple.last.first_name }}</p>
+                    <p class="card-text">{{ wedding.couple.last.email }}</p>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-7 card">
+            <div class="card-body">
+                <h5 class="card-title">Countdown Clock</h5>
+            </div>
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            <h5 class="card-title">Venue Information</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="card-title"><i class="fa-solid fa-location-dot"></i>{{ wedding.venue1 }}</h4>
+                    <p class="card-text">{{ wedding.venue1_address }}</p>
+                </div>
+                <div class="col-md-6">Map</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Map</div>
+                <div class="col-md-6">
+                    <h4 class="card-title"><i class="fa-solid fa-location-dot"></i>{{ wedding.venue2 }}</h4>
+                    <p class="card-text">{{ wedding.venue2_address }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            <h5 class="card-title">Menu</h5>
+            <img src="#" alt="">
+            {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
+            <p>The food questionnaire has not been published yet, please check back later.</p>
+            {% else %}
+            {% if food.id != "" %}
+            <a href="#">Amend food choices</a>
+            {% else %}
+            <a href="#">Take food questionnaire</a>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            <h5 class="card-title">Accommodation Nearby</h5>
+            {% for hotel in hotels %}
+            <h4>{{ hotel.name }}</h4>
+            <p>{{ hotel.address }}</p>
+            <a href="{{ hotel.website }}"></a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            <h5 class="card-title">Additional Information</h5>
+            {{ wedding.other_info }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

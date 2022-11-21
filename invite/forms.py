@@ -28,7 +28,7 @@ class RSVP_form(forms.ModelForm):
     RSVP = forms.NullBooleanField(label="RSVP")
     RSVP_comment = forms.JSONField(
         label="RSVP Comment",
-        initial="Send a message to {{ couple }}."
+        initial="Send a message to {{ wedding.couple.first.first_name }} & {{ wedding.couple.first.first_name }}."  # noqa
         )
 
     class Meta:
