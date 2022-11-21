@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewUserForm, RSVP_form
-from .models import Guest, Wedding, Food, Hotel
+from . import models
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -86,8 +86,8 @@ def password_reset_request(request):
 
 @login_required(login_url='/')
 def get_invite(request):
-    guest = Guest.objects.filter(user_id=request.user.id).first()
-    wedding = Wedding.objects.filter(active=True).first()
+    guest = models.Guest.objects.filter(user_id=request.user.id).first()
+    wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == 'POST':
         form = RSVPForm(request.POST)
         if form.is_valid():
@@ -104,10 +104,10 @@ def get_invite(request):
 
 @login_required(login_url='/')
 def get_info(request):
-    guest = Guest.objects.filter(user_id=request.user.id).first()
-    wedding = Wedding.objects.filter(active=True).first()
-    food = Food.objects.filter(guest_id=request.user.id).first()
-    hotel = Hotel.objects.all()
+    guest = models.Guest.objects.filter(user_id=request.user.id).first()
+    wedding = models.Wedding.objects.filter(active=True).first()
+    food = models.Food.objects.filter(guest_id=request.user.id).first()
+    hotel = models.Hotel.objects.all()
     context = {
         'guest': guest,
         'wedding': wedding,
@@ -115,3 +115,14 @@ def get_info(request):
         'hotel': hotel,
     }
     return render(request, 'invite/info.html', context)
+
+
+@login_required(login_url='/')
+def get_gallery(request):
+    wedding = models.Wedding.objects.filter(active=True).first()
+    images = models.Image.objects.all()
+    context = {
+        'wedding': wedding,
+        'images': images
+    }
+    return render(request, 'invite/gallery.html', context)
