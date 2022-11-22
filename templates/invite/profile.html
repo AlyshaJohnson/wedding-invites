@@ -1,0 +1,89 @@
+{% extends "invite/base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row m-2">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title uppercase mx-auto" style="width: 100px">{{ guest.first_name }}
+                        {{ guest.last_name }}</h5>
+                    <div class="row">
+                        <p class="card-text uppercase col-3">Email:</p>
+                        <p class="card-text col-9">{{ guest.email }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="card-text uppercase col-3">Number:</p>
+                        <p class="card-text col-9">{{ guest.phone }}</p>
+                    </div>
+                    <div class="row">
+                        <p class="card-text uppercase col-3">Hotel:</p>
+                        <p class="card-text col-9">{{ guest.hotel }}</p>
+                    </div>
+                    <div>
+                        <p class="card-text uppercase">Dietry Requirements:</p>
+                        <p class="card-text">{{ guest.diet }}</p>
+                    </div>
+                    <div>
+                        <p class="card-text uppercase">Allergies:</p>
+                        <p class="card-text">{{ guest.allergies }}</p>
+                    </div>
+                    {% if guest.linked_party != "" %}
+                    <div>
+                        <p class="card-text uppercase">Party:</p>
+                        {% for x in guest.linked_party.all %}
+                        <a href="#">
+                            <i class="fa-regular fa-user"></i>
+                            <p class="card-text">{{ x.first_name }}</p>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div>
+                <h5>Welcome to your profile!</h5>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Food Questionnaire</h5>
+                    {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
+                    <p>The food questionnaire has not been published yet, please check back later.</p>
+                    {% else %}
+                    {% if food.id != "" %}
+                    <a href="#">Amend food choices</a>
+                    {% else %}
+                    <a href="#">Take food questionnaire</a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h5 class="card-title">Song Requests</h5>
+                    {% if song.title == "" %}
+                    <p>You have not requested a song yet.</p>
+                    <a href="#">Make a request</a>
+                    {% else %}
+                    {% for x in song %}
+                    <div class="row">
+                        <div class="col-9">
+                            <p>{{ x.song}} - {{ x.artist }}</p>
+                        </div>
+                        <div class="col-3">
+                            <a href="#"><i class="fa-solid fa-xmark"></i></a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <a href="#">Add a request</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

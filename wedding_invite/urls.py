@@ -30,5 +30,6 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='invite/password/password_reset_complete.html'), name='password_reset_complete'),  # noqa
     path('password_reset', views.password_reset_request, name='password_reset'),  # noqa
     path('info/', views.get_info, name='get_info'),
-    path('gallery/', views.get_gallery, name='get_gallery')
+    path('gallery/', views.get_gallery, name='get_gallery'),
+    path('profile/<user_id>', views.get_profile, name='get_profile')
 ]

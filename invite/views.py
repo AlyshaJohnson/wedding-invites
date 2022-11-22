@@ -126,3 +126,20 @@ def get_gallery(request):
         'images': images
     }
     return render(request, 'invite/gallery.html', context)
+
+
+@login_required(login_url='/')
+def get_profile(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    guest = models.Guest.objects.filter(user_id=user_id).first()
+    wedding = models.Wedding.objects.filter(active=True).first()
+    food = models.Food.objects.all()
+    song = models.Song.objects.filter(guest=guest)
+    context = {
+        'user': user,
+        'guest': guest,
+        'wedding': wedding,
+        'food': food,
+        'song': song,
+    }
+    return render(request, 'invite/profile.html', context)
