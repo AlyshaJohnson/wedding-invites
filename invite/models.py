@@ -40,6 +40,7 @@ class Wedding(models.Model):
     venue2 = models.CharField(max_length=100, unique=False, blank=True)
     venue2_time = models.TimeField(auto_now=False, blank=True, null=True)
     venue2_address = models.TextField(blank=True)
+    rsvp_date = models.DateTimeField(auto_now=False, blank=True, null=True)
     menu = CloudinaryField(blank=True)
     starter1 = models.CharField(max_length=200, unique=False, blank=True)
     starter1_ingredients = models.TextField(blank=True)
