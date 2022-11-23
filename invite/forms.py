@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Wedding, Guest
+from .models import Wedding, Guest, Song
 
 
 class NewUserForm(UserCreationForm):
@@ -34,3 +34,12 @@ class RSVP_form(forms.ModelForm):
     class Meta:
         model = Guest
         fields = ["RSVP", "RSVP_comment"]
+
+
+class add_song(forms.ModelForm):
+    song = forms.TextInput()
+    artist = forms.TextInput()
+
+    class Meta:
+        model = Song
+        fields = ["song", "artist"]

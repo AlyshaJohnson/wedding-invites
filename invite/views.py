@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import NewUserForm, RSVP_form
+from .forms import NewUserForm, RSVP_form, add_song
 from . import models
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -143,3 +143,32 @@ def get_profile(request, user_id):
         'song': song,
     }
     return render(request, 'invite/profile.html', context)
+
+
+@login_required(login_url='/')
+def get_add_song(request):
+    guest = models.Guest.objects.filter(user_id=request.user.id).first()
+    wedding = models.Wedding.objects.filter(active=True).first()
+    form = add_song()
+    if request.method == "POST":
+        form = add_song(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.guest_id = guest.id
+            obj.save()
+            if 'add_another' in request.POST:
+                return redirect('/add_song/')
+            elif 'exit' in request.POST:
+                return redirect(get_profile, user_id=request.user.id)
+    context = {
+        'guest': guest,
+        'wedding': wedding,
+        'form': form
+    }
+    return render(request, 'invite/add_song.html', context)
+
+
+def delete_song(request, song_id):
+    song = get_object_or_404(models.Song, id=song_id)
+    song.delete()
+    return redirect(get_profile, user_id=request.user.id)

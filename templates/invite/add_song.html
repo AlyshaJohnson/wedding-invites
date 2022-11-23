@@ -1,0 +1,21 @@
+{% extends "invite/base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container w-75 py-5">
+	<h2>Add a song</h2>
+	<hr>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<hr>
+		<div class="mx-auto" style="width: 400px">
+            <button class="btn btn-primary" type="submit" name="add_another">Save and add another</button>
+			<button class="btn btn-primary" type="submit" name="exit">Save request and exit</button>
+		</div>
+	</form>
+</div>
+
+{% endblock %}
