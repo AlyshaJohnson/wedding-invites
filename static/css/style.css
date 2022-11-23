@@ -1,0 +1,53 @@
+/* --------------------------------- Fonts and Text */
+
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-centre {
+    text-align: center;
+}
+
+.header-banner, 
+.user-name {
+    font-family: 'Petit Formal Script', cursive;
+}
+
+nav, nav a {
+    color: #BD8185;
+}
+
+nav, nav a:hover {
+    color: #574143;
+}
+
+/* --------------------------------- Colors and Backgrounds */
+
+body {
+    background: 
+        pink
+        url(../media/images/background2.jpg)
+        top center / cover
+        no-repeat
+        fixed;
+}
+
+header {
+    background-color: #FFF5F6;
+    border: 2px ridge #BD8185;
+    border-radius: 15px;
+}
+
+
+
+/* --------------------------------- Base.html */
+
+.user-name {
+    border-right: 1px solid #BD8185;
+}
+
+/* --------------------------------- Invite.html */
+
+

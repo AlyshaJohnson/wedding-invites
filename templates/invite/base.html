@@ -14,13 +14,13 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <img src="" alt="">
+    <header class="container mt-5">
+        <div class="header-banner text-centre pt-4">
             <h1>
                 {{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}'s Wedding
             </h1>
         </div>
+        <hr>
         <div class="row">
             {% if user.is_authenticated %}
             <div class="col-md-8">
@@ -40,17 +40,20 @@
             </div>
             <div class="col-md-4">
                 <nav>
-                    <ul class="nav justify-content-end">
+                    <ul class="nav nav-tabs justify-content-end">
+                        <li>
+                            <p class="nav-link disabled user-name">{{ user.first_name }} {{ user.last_name }} </p>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/profile/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a>
+                            <a class="nav-link" href="/profile/{{ user.id }}"><i class="fa-solid fa-user"></i></a>
                         </li>
                         {% if user.is_staff == True %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/">Admin</a>
+                            <a class="nav-link" href="/admin/"><i class="fa-solid fa-gear"></i></a>
                         </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="/logout">Log out</a>
+                            <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
                         </li>
                     </ul>
                 </nav>
@@ -66,8 +69,6 @@
             </div>
             {% endif %}
         </div>
-
-
     </header>
 
     {% block content %}
