@@ -4,29 +4,65 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container">
-    <div>
-        <p>Dear {{ guest.first_name }},</p>
-        <p>{{ wedding.couple.first.first_name }} and {{ wedding.couple.last.first_name }} would like to invite you to
-            their
-            wedding.</p>
-        <p>It will be held on {{ wedding.wedding_date }}</p>
-        <p>The ceremony will take place at {{ wedding.venue1 }}, followed by the wedding breakfast at
-            {{ wedding.venue2 }}.
-        </p>
-        <p>We hope that you can join us</p>
+<div class="container mb-3">
+    <div class="invite m-3 mx-auto">
+        <div class="invite-content m-3 text-centre uppercase">
+            <div class="invite-to">
+                {% if guest.party_admin == False %}
+                <p>{{ guest.first_name }},
+                {% else %}
+                <p>
+                    {{ guest.first_name }}
+                    {% for x in guest.linked_party.all %}
+                    {% if forloop.last %}
+                    and {{ x.first_name }},
+                    {% else %}
+                    , {{ x.first_name }},
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                    you are invited to celebrate the wedding of </p>
+            </div>
+            <div class="invite-wreath mx-auto">
+                <h2>{{ wedding.couple.first.first_name }} {{ wedding.couple.first.last_name }}</h2>
+                <p>&</p>
+                <h2>{{ wedding.couple.last.first_name }} {{ wedding.couple.first.last_name }}</h2>
+            </div>
+            <div class="invite-date mt-3">
+                <p>on the {{ wedding.wedding_date }}.</p>
+            </div>
+            <div class="invite-ceremony">
+                <hr>
+                <p>The ceremony will take place at {{ wedding.venue1_time }} from </p>
+                <h3>{{ wedding.venue1 }}</h3>
+                <p class="capitalise">{{ wedding.venue1_address }}</p>
+            </div>
+            <div class="invite-party">
+                <hr>
+                <p>Followed by the wedding breakfast at  {{ wedding.venue2_time }} from</p>
+                <h3>{{ wedding.venue2 }}</h3>
+                <p class="capitalise">{{ wedding.venue2_address }}</p>
+            </div>
+            <div class="invite-rsvp-date pb-3">
+                <hr>
+                <p>Please RSVP by</p>
+                <h3>{{ wedding.RSVP_date }}</h3>
+            </div>
+        </div>
     </div>
-    <div class="card w-75 py-2">
-        <h2>Please RSVP here:</h2>
-        <form action="POST">
-            {{ form|crispy }}
-            <hr>
-            {% if guest.RSVP == "Unknown" %}
-            <button class="btn btn-primary" type="submit">Send RSVP</button>
-            {% else %}
-            <button class="btn btn-primary" type="submit">Update RSVP</button>
-            {% endif %}
-        </form>
+    <div class="card mx-auto w-75 py-2">
+        <div class="card-body">
+            <h2 class="card-title">Please RSVP here:</h2>
+            <form action="POST">
+                {{ form|crispy }}
+                <hr>
+                {% if guest.RSVP == "Unknown" %}
+                <button class="btn btn-primary" type="submit">Send RSVP</button>
+                {% else %}
+                <button class="btn btn-primary" type="submit">Update RSVP</button>
+                {% endif %}
+            </form>
+        </div>
     </div>
 
     {% endblock %}

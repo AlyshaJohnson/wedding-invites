@@ -6,13 +6,25 @@
     text-transform: uppercase;
 }
 
+.capitalise {
+    text-transform: capitalize;
+}
+
 .text-centre {
     text-align: center;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .header-banner, 
-.user-name {
+.user-name,
+.invite-wreath, 
+.invite-party h3,
+.invite-ceremony h3 {
     font-family: 'Petit Formal Script', cursive;
+    text-transform: capitalize
 }
 
 nav, nav a {
@@ -27,7 +39,7 @@ nav, nav a:hover {
 
 body {
     background: 
-        pink
+        #FFF5F6
         url(../media/images/background2.jpg)
         top center / cover
         no-repeat
@@ -35,12 +47,16 @@ body {
 }
 
 header {
-    background-color: #FFF5F6;
+    background-color: #f8f6f7;
     border: 2px ridge #BD8185;
     border-radius: 15px;
+    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
+.container .card {
+    background-color: #f8f6f7;
+    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 /* --------------------------------- Base.html */
 
@@ -50,4 +66,28 @@ header {
 
 /* --------------------------------- Invite.html */
 
+.invite {
+    width: 800px;
+    background:
+        #eceff6
+        url(../media/images/invite.jpg)
+        top center / cover;
+    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.invite-to {
+    padding-top: 250px;
+}
+
+.invite-wreath {
+    border: 10px double #a2b597;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    box-shadow: 
+        6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset, 
+        8px 8px 20px 0 rgba(0, 0, 0, 0.19),
+        6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset, 
+        8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 75px;
+}
