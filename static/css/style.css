@@ -1,6 +1,12 @@
 /* --------------------------------- Fonts and Text */
 
 @import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 200;
+}
 
 .uppercase {
     text-transform: uppercase;
@@ -22,9 +28,10 @@
 .user-name,
 .invite-wreath, 
 .invite-party h3,
-.invite-ceremony h3 {
+.invite-ceremony h3,
+.invite-rsvp-date h3 {
     font-family: 'Petit Formal Script', cursive;
-    text-transform: capitalize
+    text-transform: capitalize;
 }
 
 nav, nav a {
@@ -35,12 +42,25 @@ nav, nav a:hover {
     color: #574143;
 }
 
+#wedding-date,
+#wedding-time,
+#venue1_lat,
+#venue1_lon,
+#venue2_lat,
+#venue2_lon  {
+    display: none;
+}
+
+#countdown {
+    font-size: 3.5em;
+}
+
 /* --------------------------------- Colors and Backgrounds */
 
 body {
     background: 
         #FFF5F6
-        url(../media/images/background2.jpg)
+        url(../media/images/background.jpg)
         top center / cover
         no-repeat
         fixed;
@@ -90,4 +110,42 @@ header {
         6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset, 
         8px 8px 20px 0 rgba(0, 0, 0, 0.19);
     padding-top: 75px;
+}
+
+/* --------------------------------- Info.html */
+
+@keyframes pulse {
+    from {font-size: 3.5rem; color:#BD8185}
+    to {font-size: 3.0rem; color:#574143}
+  }
+
+  #countdown {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+.mapholder{
+    height: auto;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+  }
+
+#venue1-button,
+#venue2-button {
+    width: 100%;
+    height: 150px;
+}
+
+.image-container {
+    border: 5px inset #BD8185;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
 }

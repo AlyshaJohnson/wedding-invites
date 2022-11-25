@@ -13,6 +13,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.contrib.auth.decorators import login_required
+from wedding_invite import settings
 
 
 def get_sign_in(request):
@@ -72,7 +73,7 @@ def password_reset_request(request):
                         "user": user,
                         'token': default_token_generator.make_token(user),
                         'protocol': 'http',
-                        }
+                    }
                     email = render_to_string(email_template_name, c)
                     try:
                         send_mail(subject, email, 'admin@example.com', [user.email], fail_silently=False)  # noqa
@@ -108,11 +109,13 @@ def get_info(request):
     wedding = models.Wedding.objects.filter(active=True).first()
     food = models.Food.objects.filter(guest_id=request.user.id).first()
     hotel = models.Hotel.objects.all()
+    key = settings.GOOGLE_API_KEY
     context = {
         'guest': guest,
         'wedding': wedding,
         'food': food,
         'hotel': hotel,
+        'key': key,
     }
     return render(request, 'invite/info.html', context)
 

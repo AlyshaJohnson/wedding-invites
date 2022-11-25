@@ -2,42 +2,72 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row m-2">
-        <div class="col-md-5 card">
+<div class="container">
+    <div class="row mt-2 card-deck">
+        <div class="col-md-5 card mr-n1">
             <div class="card-body">
                 <h5 class="card-title">Contact</h5>
-                <span>
-                    <p class="card-text">{{ wedding.couple.first.first_name }}</p>
-                    <p class="card-text">{{ wedding.couple.first.email }}</p>
-                </span>
-                <span>
-                    <p class="card-text">{{ wedding.couple.last.first_name }}</p>
-                    <p class="card-text">{{ wedding.couple.last.email }}</p>
-                </span>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="card-text uppercase">
+                            {{ wedding.couple.first.first_name }} {{ wedding.couple.first.last_name }}
+                        </p>
+                    </div>
+                    <div class="col-8">
+                        <p class="card-text">{{ wedding.couple.first.email }}</p>
+                        <p class="card-text">{{ wedding.couple.first.phone }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="card-text uppercase">
+                            {{ wedding.couple.last.first_name }} {{ wedding.couple.last.last_name }}
+                        </p>
+                    </div>
+                    <div class="col-8">
+                        <p class="card-text">{{ wedding.couple.last.email }}</p>
+                        <p class="card-text">{{ wedding.couple.last.phone }}</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-7 card">
             <div class="card-body">
                 <h5 class="card-title">Countdown Clock</h5>
+                <hr>
+                <span id="wedding-date">{{ wedding.wedding_date }}</span>
+                <span id="wedding-time">{{ wedding.venue1_time }}</span>
+                <div class="pt-4">
+                    <h1 id="countdown" class="text-centre display-1"></h1>
+                </div>
             </div>
         </div>
     </div>
     <div class="card m-2">
         <div class="card-body">
             <h5 class="card-title">Venue Information</h5>
+            <hr>
             <div class="row">
-                <div class="col-md-6">
-                    <h4 class="card-title"><i class="fa-solid fa-location-dot"></i>{{ wedding.venue1 }}</h4>
-                    <p class="card-text">{{ wedding.venue1_address }}</p>
+                <div class="col-md-5 button-container">
+                    <button class="card active mb-2" id="venue1-button">
+                        <h4 class="card-title m-2"><i class="fa-solid fa-location-dot mr-3"></i>{{ wedding.venue1 }}
+                        </h4>
+                        <p class="card-text m-2">{{ wedding.venue1_address }}</p>
+                        <span id="venue1_lat">{{ wedding.venue1_lat }}</span>
+                        <span id="venue1_lon">{{ wedding.venue1_lon }}</span>
+                    </button>
+                    <button class="card" id="venue2-button">
+                        <h4 class="card-title m-2"><i class="fa-solid fa-location-dot mr-3"></i>{{ wedding.venue2 }}
+                        </h4>
+                        <p class="card-text m-2">{{ wedding.venue2_address }}</p>
+                        <span id="venue2_lat">{{ wedding.venue2_lat }}</span>
+                        <span id="venue2_lon">{{ wedding.venue2_lon }}</span>
+                    </button>
                 </div>
-                <div class="col-md-6">Map</div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">Map</div>
-                <div class="col-md-6">
-                    <h4 class="card-title"><i class="fa-solid fa-location-dot"></i>{{ wedding.venue2 }}</h4>
-                    <p class="card-text">{{ wedding.venue2_address }}</p>
+                <div class="col-md-7 mapholder">
+                    <div id="map"></div>
                 </div>
             </div>
         </div>
@@ -45,32 +75,49 @@
     <div class="card m-2">
         <div class="card-body">
             <h5 class="card-title">Menu</h5>
-            <img src="#" alt="">
-            {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
-            <p>The food questionnaire has not been published yet, please check back later.</p>
-            {% else %}
-            {% if food.id != "" %}
-            <a href="#">Amend food choices</a>
-            {% else %}
-            <a href="#">Take food questionnaire</a>
-            {% endif %}
-            {% endif %}
+            <hr>
+            <div>
+                <div class="image-container mx-auto w-75">
+                    <img src="#" alt="">
+                </div>
+                <div class="menu-buttons m-3">
+                    {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
+                    <p class="text-centre card-text">The food questionnaire has not been published yet, please check
+                        back later.</p>
+                    {% else %}
+                    {% if food.id != "" %}
+                    <a href="#">Amend food choices</a>
+                    {% else %}
+                    <a href="#">Take food questionnaire</a>
+                    {% endif %}
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
     <div class="card m-2">
         <div class="card-body">
             <h5 class="card-title">Accommodation Nearby</h5>
-            {% for hotel in hotels %}
-            <h4>{{ hotel.name }}</h4>
-            <p>{{ hotel.address }}</p>
-            <a href="{{ hotel.website }}"></a>
-            {% endfor %}
+            <hr>
+            <div class="row">
+                {% for x in hotel %}
+                <div class="card col-s-6 col-md-4 m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ x.name }}</h5>
+                        <hr>
+                        <p class="card-text">{{ x.address }}</p>
+                        <p class="card-text"><a href="{{ x.website }}">{{ x.website }}</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <div class="card m-2">
         <div class="card-body">
             <h5 class="card-title">Additional Information</h5>
-            {{ wedding.other_info }}
+            <hr>
+            <p class="card-text">{{ wedding.other_info }}</p>
         </div>
     </div>
 </div>
