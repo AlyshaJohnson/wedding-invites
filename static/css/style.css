@@ -34,14 +34,6 @@ body {
     text-transform: capitalize;
 }
 
-nav, nav a {
-    color: #BD8185;
-}
-
-nav, nav a:hover {
-    color: #574143;
-}
-
 #wedding-date,
 #wedding-time,
 #venue1_lat,
@@ -73,9 +65,48 @@ header {
     box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+nav, nav a {
+    color: #BD8185;
+}
+
+nav, nav a:hover {
+    color: #574143;
+}
+
 .container .card {
     background-color: #f8f6f7;
     box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-body .btn-primary {
+    background-color: #a2b597;
+    border: 2px ridge #a2b597;
+}
+
+.card-body .btn-primary:hover {
+    background-color: #a2b597;
+    border: 2px groove #576151;
+}
+
+div > a {
+    color: #a2b597;
+}
+
+div > a:hover {
+    color: #576151;
+}
+
+.profile-coin > a {
+    color: white
+}
+
+.profile-coin > a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.profile-coin:hover {
+    background-color: #574143;
 }
 
 /* --------------------------------- Base.html */
@@ -148,4 +179,13 @@ header {
 .image-container img {
     width: 100%;
     height: auto;
+}
+
+/* --------------------------------- Profile.html */
+
+.profile-coin {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #BD8185;
 }
