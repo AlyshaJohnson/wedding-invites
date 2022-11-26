@@ -57,7 +57,7 @@ class HotelAdmin(admin.ModelAdmin):
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ("description", "date_added", "order")
+    list_display = ("description", "file", "date_added", "order")
 
 
 @admin.register(Message)

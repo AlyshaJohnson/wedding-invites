@@ -159,10 +159,13 @@ class Image(models.Model):
     order = models.IntegerField(unique=True, blank=True)
 
     def save(self, *args, **kwargs):
-        number = Image.objects.filter(order=self.order)
-        if not number:
-            self.order = 1
-            self.order += 1
+        self.order = 1
+        while True:
+            number = Image.objects.filter(order=self.order)
+            if not number:
+                break
+            else:
+                self.order += 1
         super(Image, self).save(*args, **kwargs)
 
     class Meta:

@@ -243,6 +243,12 @@ Any photos used throughout the app are stock imagery from the following services
 - [FreeImages](https://www.freeimages.com/)
 - [PikWizard](https://pikwizard.com/)
 
+Credit goes to the following artists for use of their images on the site:
+- [Hannah Olinger](https://unsplash.com/@hannaholinger) on Unspalsh for the couple images in the gallery for the demo.
+- [Evie Shaffer](https://unsplash.com/@evieshaffer) on Unsplash for the invite images.
+- [Alex Grey](https://unsplash.com/@sharonmccutcheon) on Unsplash for the background image.
+  
+
 <insert any other media used throughout the app/site here>
 
 ### 6.3 Research

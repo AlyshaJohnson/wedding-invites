@@ -17,6 +17,7 @@ from wedding_invite import settings
 
 
 def get_sign_in(request):
+    wedding = models.Wedding.objects.filter(active=True).first()
     if request.user.is_authenticated:
         return redirect("/invite/")
     else:
@@ -33,10 +34,15 @@ def get_sign_in(request):
                 else:
                     messages.error(request, "Invalid email or password.")
         form = AuthenticationForm()
-    return render(request=request, template_name='invite/index.html', context={"login_form": form})  # noqa
+    context = {
+        'login_form': form,
+        'wedding': wedding
+    }
+    return render(request=request, template_name='invite/index.html', context=context)  # noqa
 
 
 def register_request(request):
+    wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
@@ -46,7 +52,11 @@ def register_request(request):
             return redirect("/invite/")
         messages.error(request, "Unsuccessful registration. Invalid information.")  # noqa
     form = NewUserForm()
-    return render(request=request, template_name="invite/register.html", context={"register_form": form})  # noqa
+    context = {
+        'register_form': form,
+        'wedding': wedding
+    }
+    return render(request=request, template_name="invite/register.html", context=context)  # noqa
 
 
 def logout_request(request):
@@ -56,6 +66,7 @@ def logout_request(request):
 
 
 def password_reset_request(request):
+    wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == "POST":
         password_reset_form = PasswordResetForm(request.POST)
         if password_reset_form.is_valid():
@@ -82,7 +93,11 @@ def password_reset_request(request):
                     return redirect("/password_reset/done/")
             messages.error(request, 'An invalid email has been entered.')
     password_reset_form = PasswordResetForm()
-    return render(request=request, template_name="invite/password/password_reset.html", context={"password_reset_form": password_reset_form})  # noqa
+    context = {
+        'password_reset_form': password_reset_form,
+        'wedding': wedding
+    }
+    return render(request=request, template_name="invite/password/password_reset.html", context=context)  # noqa
 
 
 @login_required(login_url='/')
