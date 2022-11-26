@@ -181,6 +181,13 @@ div > a:hover {
     height: auto;
 }
 
+/* --------------------------------- Gallery.html */
+
+.gallery-image img {
+    max-width: 500px;
+    height: auto;
+}
+
 /* --------------------------------- Profile.html */
 
 .profile-coin {

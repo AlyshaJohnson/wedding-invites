@@ -48,7 +48,7 @@ class Wedding(models.Model):
     venue2_lat = models.TextField(blank=True)
     venue2_lon = models.TextField(blank=True)
     rsvp_date = models.DateTimeField(auto_now=False, blank=True, null=True)
-    menu = CloudinaryField(blank=True)
+    menu = CloudinaryField('image', blank=True)
     starter1 = models.CharField(max_length=200, unique=False, blank=True)
     starter1_ingredients = models.TextField(blank=True)
     starter2 = models.CharField(max_length=200, unique=False, blank=True)
@@ -154,9 +154,19 @@ class Hotel(models.Model):
 
 class Image(models.Model):
     description = models.TextField(blank=True)
-    file = models.FileField()
+    file = CloudinaryField('image')
     date_added = models.DateField(auto_now=True)
-    order = models.IntegerField(unique=True)
+    order = models.IntegerField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        number = Image.objects.filter(order=self.order)
+        if not number:
+            self.order = 1
+            self.order += 1
+        super(Image, self).save(*args, **kwargs)
+
+    class Meta:
+        ordering = ["-order"]
 
     def __str__(self):
         return f"{self.file}, {self.date_added}"

@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<div class="container-fluid m-2">
-    <div class="mx-auto" style="width: 100px;">
-        <h3>Gallery</h3>
+<div class="container">
+    <div class="mx-auto uppercase mt-2" style="width: 100px;">
+        <h2>Gallery</h2>
     </div>
-    <div class="row">
+    <div class="card-columns">
         {% for image in images %}
-        <div class="col-md-6 col-lg-4 card" style="width: 18rem;">
-            <img src="{{ image.file }}" class="card-img-top" alt="...">
+        <div class="card gallery-image m-1">
+            <img src="{{ image.file.url }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">{{ image.description }}</p>
             </div>

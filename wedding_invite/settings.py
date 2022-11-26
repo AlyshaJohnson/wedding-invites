@@ -151,3 +151,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Send emails
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# cloudinary settings
+
+CLOUDINARY = {
+  'cloud_name': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+  'api_key': os.environ.get('CLOUDINARY_KEY'),
+  'api_secret': os.environ.get('CLOUDINARY_SECRET_KEY'),
+}

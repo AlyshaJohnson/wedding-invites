@@ -56,10 +56,8 @@ class HotelAdmin(admin.ModelAdmin):
 
 
 @admin.register(Image)
-class ImageAdmin(SummernoteModelAdmin):
+class ImageAdmin(admin.ModelAdmin):
     list_display = ("description", "date_added", "order")
-
-    summernote_field = ('description')
 
 
 @admin.register(Message)
