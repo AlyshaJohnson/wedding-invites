@@ -5,23 +5,31 @@
 {% load crispy_forms_tags %}
 
 <div class="container w-75 py-5">
-	<h2>Register</h2>
-	<form method="POST">
-		{% csrf_token %}
-		<div class="row">
-			<div class="col-lg-6 col-md-12">
-				{{ register_form.first_name|as_crispy_field }}
-			</div>
-			<div class="col-lg-6 col-md-12">
-				{{ register_form.last_name|as_crispy_field }}
+	<div class="card">
+		<div class="card-body">
+			<h2 class="card-title">Register</h2>
+			<div class="card-text">
+				<form method="POST">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-lg-6 col-md-12">
+							{{ register_form.first_name|as_crispy_field }}
+						</div>
+						<div class="col-lg-6 col-md-12">
+							{{ register_form.last_name|as_crispy_field }}
+						</div>
+					</div>
+					{{ register_form.email|as_crispy_field }}
+					{{ register_form.password1|as_crispy_field }}
+					{{ register_form.password2|as_crispy_field }}
+					<div class="button-container mx-auto">
+						<button class="btn btn-primary" type="submit">Register</button>
+					</div>
+				</form>
+				<p class="text-center">If you already have an account, <a href="/">login</a> instead.</p>
 			</div>
 		</div>
-		{{ register_form.email|as_crispy_field }}
-		{{ register_form.password1|as_crispy_field }}
-		{{ register_form.password2|as_crispy_field }}
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
-	<p class="text-center">If you already have an account, <a href="/">login</a> instead.</p>
+	</div>
 </div>
 
 {% endblock %}

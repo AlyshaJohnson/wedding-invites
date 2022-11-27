@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Wedding, Guest, Song
+from .models import Wedding, Guest, Song, Food
 
 
 class NewUserForm(UserCreationForm):
@@ -24,7 +24,7 @@ class NewUserForm(UserCreationForm):
             return user
 
 
-class RSVP_form(forms.ModelForm):
+class RSVPForm(forms.ModelForm):
     RSVP = forms.NullBooleanField(label="RSVP")
     RSVP_comment = forms.JSONField(
         label="RSVP Comment",
@@ -36,10 +36,31 @@ class RSVP_form(forms.ModelForm):
         fields = ["RSVP", "RSVP_comment"]
 
 
-class add_song(forms.ModelForm):
+class AddSong(forms.ModelForm):
     song = forms.TextInput()
     artist = forms.TextInput()
 
     class Meta:
         model = Song
         fields = ["song", "artist"]
+
+
+class EditProfile(forms.ModelForm):
+    first_name = forms.TextInput()
+    last_name = forms.TextInput()
+    email = forms.EmailField(required=True)
+    phone = forms.TextInput()
+    hotel = forms.TextInput()
+
+    class Meta:
+        model = Guest
+        fields = ["first_name", "last_name", "email", "phone", "hotel"]
+
+
+class EditDiet(forms.ModelForm):
+    allergies = forms.TextInput()
+    diet = forms.TextInput()
+
+    class Meta:
+        model = Food
+        fields = ["allergies", "diet"]

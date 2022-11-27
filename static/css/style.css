@@ -109,6 +109,11 @@ div > a:hover {
     background-color: #574143;
 }
 
+.button-container{
+    width: 100%;
+    text-align: center;
+}
+
 /* --------------------------------- Base.html */
 
 .user-name {

@@ -50,7 +50,9 @@
                     </div>
                     {% endif %}
                     <hr>
-                    <a class="btn btn-primary mx-auto" href="#">Edit Profile</a>
+                    <div class="button-container mx-auto">
+                        <a class="btn btn-primary" href="/edit_profile/{{ user.id }}">Edit Profile</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,10 +82,14 @@
                             <p class="card-text col-9">{{ food.dessert }}</p>
                         </div>
                         <hr>
-                        <a class="btn btn-primary" href="#">Amend food choices</a>
+                        <div class="button-container mx-auto">
+                            <a class="btn btn-primary" href="#">Amend food choices</a>
+                        </div>
                         {% else %}
                         <hr>
-                        <a class="btn btn-primary" href="#">Take food questionnaire</a>
+                        <div class="button-container mx-auto">
+                            <a class="btn btn-primary" href="#">Take food questionnaire</a>
+                        </div>
                         {% endif %}
                         {% endif %}
                     </div>
@@ -96,7 +102,9 @@
                     <div class="card-text m-1">
                         {% if song.title == "" %}
                         <p>You have not requested a song yet.</p>
-                        <a href="/add_song/">Make a request</a>
+                        <div class="button-container mx-auto">
+                            <a href="/add_song/">Make a request</a>
+                        </div>
                         {% else %}
                         {% for x in song %}
                         <div class="row m-2">
@@ -109,7 +117,9 @@
                         </div>
                         {% endfor %}
                         <hr>
-                        <a class="btn btn-primary mx-auto" href="/add_song/">Add a request</a>
+                        <div class="button-container mx-auto">
+                            <a class="btn btn-primary mx-auto" href="/add_song/">Add a request</a>
+                        </div>
                         {% endif %}
                     </div>
                 </div>

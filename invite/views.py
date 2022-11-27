@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import NewUserForm, RSVP_form, add_song
+from . import forms
 from . import models
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
@@ -44,14 +44,14 @@ def get_sign_in(request):
 def register_request(request):
     wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == "POST":
-        form = NewUserForm(request.POST)
+        form = forms.NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("/invite/")
         messages.error(request, "Unsuccessful registration. Invalid information.")  # noqa
-    form = NewUserForm()
+    form = forms.NewUserForm()
     context = {
         'register_form': form,
         'wedding': wedding
@@ -105,11 +105,11 @@ def get_invite(request):
     guest = models.Guest.objects.filter(user_id=request.user.id).first()
     wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == 'POST':
-        form = RSVPForm(request.POST)
+        form = forms.RSVPForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/invite/')
-    form = RSVP_form()
+    form = forms.RSVPForm()
     context = {
         'form': form,
         'guest': guest,
@@ -164,12 +164,50 @@ def get_profile(request, user_id):
 
 
 @login_required(login_url='/')
+def edit_profile(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    guest = get_object_or_404(models.Guest, user_id=user.id)
+    food = models.Food.objects.filter(guest_id=guest.id)
+    wedding = models.Wedding.objects.filter(active=True).first()
+    if request.method == 'POST':
+        profile_form = forms.EditProfile(request.POST, instance=guest)
+        if not food:
+            if profile_form.is_valid():
+                profile_form.save()
+                return redirect(get_profile, user_id=request.user.id)
+        else:
+            diet_form = forms.EditDiet(request.POST, instance=food)
+            if profile_form.is_valid() and diet_form.is_valid():
+                profile_form.save()
+                diet_form.save()
+                return redirect(get_profile, user_id=request.user.id)
+    profile_form = forms.EditProfile(instance=guest)
+    if not food:
+        context = {
+            'user': user,
+            'guest': guest,
+            'wedding': wedding,
+            'profile_form': profile_form,
+        }
+    else:
+        diet_form = forms.EditDiet(instance=food)
+        context = {
+            'user': user,
+            'guest': guest,
+            'wedding': wedding,
+            'profile_form': profile_form,
+            'diet_form': diet_form
+        }
+    return render(request, 'invite/edit_profile.html', context)
+
+
+@login_required(login_url='/')
 def get_add_song(request):
     guest = models.Guest.objects.filter(user_id=request.user.id).first()
     wedding = models.Wedding.objects.filter(active=True).first()
-    form = add_song()
+    form = forms.AddSong()
     if request.method == "POST":
-        form = add_song(request.POST)
+        form = forms.AddSong(request.POST)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.guest_id = guest.id

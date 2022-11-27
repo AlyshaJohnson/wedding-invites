@@ -78,7 +78,7 @@
             <hr>
             <div>
                 <div class="image-container mx-auto w-75">
-                    <img src="#" alt="">
+                    <img src="{{ wedding.menu.url }}" alt="Wedding menu image">
                 </div>
                 <div class="menu-buttons m-3">
                     {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
@@ -86,9 +86,13 @@
                         back later.</p>
                     {% else %}
                     {% if food.id != "" %}
-                    <a href="#">Amend food choices</a>
+                    <div class="button-container mx-auto">
+                        <a href="#">Amend food choices</a>
+                    </div>
                     {% else %}
-                    <a href="#">Take food questionnaire</a>
+                    <div class="button-container mx-auto">
+                        <a href="#">Take food questionnaire</a>
+                    </div>
                     {% endif %}
                     {% endif %}
                 </div>
