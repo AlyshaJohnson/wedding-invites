@@ -102,15 +102,17 @@ def password_reset_request(request):
 
 @login_required(login_url='/')
 def get_invite(request):
-    guest = models.Guest.objects.filter(user_id=request.user.id).first()
+    user = get_object_or_404(User, id=request.user.id)
+    guest = get_object_or_404(models.Guest, user_id=user.id)
     wedding = models.Wedding.objects.filter(active=True).first()
     if request.method == 'POST':
-        form = forms.RSVPForm(request.POST)
+        form = forms.RSVPForm(request.POST, instance=guest)
         if form.is_valid():
             form.save()
             return redirect('/invite/')
-    form = forms.RSVPForm()
+    form = forms.RSVPForm(instance=guest)
     context = {
+        'user': user,
         'form': form,
         'guest': guest,
         'wedding': wedding,
