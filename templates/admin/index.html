@@ -1,0 +1,39 @@
+{% extends "admin:admin/index.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/admin_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container analytics">
+    <div class="rsvp-count">
+        <h3>Guest RSVP's</h3>
+        {% for x in invite.models.Guest.objects.all %}
+        <a href="/admin/invite/guest/">{{ x.count }} / {{ x.length }}</a>
+        {% endfor %}
+    </div>
+    <div class="food-count">
+        <h3>Food Responses</h3>
+        {% for x in invite.models.Food.objects.all %}
+        <a href="/admin/invite/food/">{{ x.count }} / {{ x.length }}</a>
+        {% endfor %}
+    </div>
+    <div class="song-count">
+        <h3>Song List</h3>
+        {% for x in invite.models.Song.objects.all %}
+        <a href="/admin/invite/song/">{{ x.count }} / {{ x.length }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="button-container">
+    <a href="#">Send invites</a>
+    <a href="/admin/invite/message/add/">Send message</a>
+</div>
+
+<div id="content-main">
+  {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
+</div>
+{% endblock %}

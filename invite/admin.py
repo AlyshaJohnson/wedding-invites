@@ -63,3 +63,4 @@ class ImageAdmin(admin.ModelAdmin):
 @admin.register(Message)
 class MessageAdmin(SummernoteModelAdmin):
     summernote_field = ('description')
+    list_filter = ('status',)

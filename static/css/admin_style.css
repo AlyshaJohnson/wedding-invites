@@ -1,0 +1,30 @@
+/* --------------------------------- Admin */
+
+.analytics {
+    width: 100%;
+    text-align: center;
+}
+
+div .rsvp-count,
+div .food-count,
+div .song-count {
+    width: 30%;
+    height: 100px;
+    margin-left: 10px;
+    border: 2px double #417690;
+    color: white;
+    display: inline-block;
+}
+
+.button-container {
+    text-align: center;
+    margin: 30px;
+}
+
+.button-container a {
+    padding: 10px;
+    border: 2px outset #417690;
+    border-radius: 5px;
+    background-color: #417690;
+    color: white;
+}
