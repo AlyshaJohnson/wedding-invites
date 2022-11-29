@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from . import forms
-from . import models
+from . import forms, models
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -247,3 +246,20 @@ def get_party_profile(request, user_id):
         'song': song,
     }
     return render(request, 'invite/profile.html', context)
+
+
+@login_required(login_url='/')
+def add_food(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    guest = models.Guest.objects.filter(user_id=user_id).first()
+    wedding = models.Wedding.objects.filter(active=True).first()
+    food = models.Food.objects.all()
+    form = forms.FoodQuestionnaire()
+    context = {
+        'user': user,
+        'guest': guest,
+        'wedding': wedding,
+        'food': food,
+        'form': form,
+    }
+    return render(request, 'invite/add_food.html', context)

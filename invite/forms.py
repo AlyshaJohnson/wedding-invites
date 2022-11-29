@@ -61,3 +61,16 @@ class EditDiet(forms.ModelForm):
     class Meta:
         model = Food
         fields = ["allergies", "diet"]
+
+
+class FoodQuestionnaire(forms.ModelForm):
+    guest_id = forms.TextInput()
+    starter = forms.ChoiceField()
+    main = forms.ChoiceField()
+    dessert = forms.ChoiceField()
+    allergies = forms.TextInput()
+    diet = forms.TextInput()
+
+    class Meta:
+        model = Food
+        fields = ["starter", "main", "dessert", "allergies", "diet"]
