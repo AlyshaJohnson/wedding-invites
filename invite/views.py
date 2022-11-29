@@ -263,3 +263,20 @@ def add_food(request, user_id):
         'form': form,
     }
     return render(request, 'invite/add_food.html', context)
+
+
+@login_required(login_url='/')
+def edit_food(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    guest = get_object_or_404(models.Guest, user_id=user.id)
+    wedding = models.Wedding.objects.filter(active=True).first()
+    food = models.Food.objects.all()
+    form = forms.FoodQuestionnaire(instance=guest)
+    context = {
+        'user': user,
+        'guest': guest,
+        'wedding': wedding,
+        'food': food,
+        'form': form,
+    }
+    return render(request, 'invite/edit_food.html', context)
