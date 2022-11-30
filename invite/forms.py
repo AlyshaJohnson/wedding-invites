@@ -64,13 +64,21 @@ class EditDiet(forms.ModelForm):
 
 
 class FoodQuestionnaire(forms.ModelForm):
-    guest_id = forms.TextInput()
-    starter = forms.ChoiceField()
-    main = forms.ChoiceField()
-    dessert = forms.ChoiceField()
+    starter = forms.ChoiceField(
+        widget=forms.Select,
+        choices=Food.STARTER_CHOICES,
+        )
+    main = forms.ChoiceField(
+        widget=forms.Select,
+        choices=Food.MAIN_CHOICES,
+        )
+    dessert = forms.ChoiceField(
+        widget=forms.Select,
+        choices=Food.DESSERT_CHOICES,
+        )
     allergies = forms.TextInput()
     diet = forms.TextInput()
 
     class Meta:
         model = Food
-        fields = ["starter", "main", "dessert", "allergies", "diet"]
+        fields = ["starter", "main", "dessert", "allergies", "diet"]  # noqa

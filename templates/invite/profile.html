@@ -67,30 +67,29 @@
                     <div class="card-text">
                         {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
                         <p>The food questionnaire has not been published yet, please check back later.</p>
+                        {% elif food.starter == "" and food.main == "" and food.dessert == "" %}
+                        <p>You have not taken the food questionnaire yet.</p>
+                        <hr>
+                        <div class="button-container mx-auto">
+                            <a class="btn btn-primary" href="/add_food/">Take food questionnaire</a>
+                        </div>
                         {% else %}
-                        {% if food.guest_id == guest.id %}
                         <div class="row">
-                            <p class="card-text uppercase col-3">Starter:</p>
-                            <p class="card-text col-9">{{ food.starter }}</p>
+                            <p class="uppercase col-3">Starter:</p>
+                            <p class="col-9">{{ food.starter }}</p>
                         </div>
                         <div class="row">
-                            <p class="card-text uppercase col-3">Main:</p>
-                            <p class="card-text col-9">{{ food.main }}</p>
+                            <p class="uppercase col-3">Main:</p>
+                            <p class="col-9">{{ food.main }}</p>
                         </div>
                         <div class="row">
-                            <p class="card-text uppercase col-3">Dessert:</p>
-                            <p class="card-text col-9">{{ food.dessert }}</p>
+                            <p class="uppercase col-3">Dessert:</p>
+                            <p class="col-9">{{ food.dessert }}</p>
                         </div>
                         <hr>
                         <div class="button-container mx-auto">
-                            <a class="btn btn-primary" href="#">Amend food choices</a>
+                            <a class="btn btn-primary" href="/edit_food/{{ user.id }}">Amend food choices</a>
                         </div>
-                        {% else %}
-                        <hr>
-                        <div class="button-container mx-auto">
-                            <a class="btn btn-primary" href="#">Take food questionnaire</a>
-                        </div>
-                        {% endif %}
                         {% endif %}
                     </div>
                 </div>

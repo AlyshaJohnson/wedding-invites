@@ -90,38 +90,41 @@ class Wedding(models.Model):
 
 
 class Food(models.Model):
-    class StarterChoices(models.TextChoices):
-        STARTER1 = Wedding.starter1
-        STARTER2 = Wedding.starter2
-        STARTER3 = Wedding.starter3
+    active_wedding = Wedding.objects.filter(active=True).first()
+    STARTER_CHOICES = [
+        ('starter1', active_wedding.starter1),
+        ('starter2', active_wedding.starter2),
+        ('starter3', active_wedding.starter3)
+    ]
 
-    class MainChoices(models.TextChoices):
-        MAIN1 = Wedding.main1
-        MAIN2 = Wedding.main2
-        MAIN3 = Wedding.main3
+    MAIN_CHOICES = [
+        ('main1', active_wedding.main1),
+        ('main2', active_wedding.main2),
+        ('main3', active_wedding.main3)
+    ]
 
-    class DessertChoices(models.TextChoices):
-        DESSERT1 = Wedding.dessert1
-        DESSERT2 = Wedding.dessert2
-        DESSERT3 = Wedding.dessert3
-
-    guest_id = models.ForeignKey(Guest, on_delete=models.CASCADE)
+    DESSERT_CHOICES = [
+        ('dessert1', active_wedding.dessert1),
+        ('dessert2', active_wedding.dessert2),
+        ('dessert3', active_wedding.dessert3)
+    ]
+    guest_id = models.OneToOneField(Guest, on_delete=models.CASCADE, unique=True)  # noqa
     starter = models.CharField(
         max_length=200,
         unique=False,
-        choices=StarterChoices.choices,
+        choices=STARTER_CHOICES,
         default=None
     )
     main = models.CharField(
         max_length=200,
         unique=False,
-        choices=MainChoices.choices,
+        choices=MAIN_CHOICES,
         default=None
     )
     dessert = models.CharField(
         max_length=200,
         unique=False,
-        choices=DessertChoices.choices,
+        choices=DESSERT_CHOICES,
         default=None
     )
     allergies = models.CharField(max_length=100, unique=False, blank=True)

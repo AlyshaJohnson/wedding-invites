@@ -249,14 +249,20 @@ def get_party_profile(request, user_id):
 
 
 @login_required(login_url='/')
-def add_food(request, user_id):
+def add_food(request):
     user = get_object_or_404(User, id=user_id)
-    guest = models.Guest.objects.filter(user_id=user_id).first()
+    guest = models.Guest.objects.filter(user_id=request.user.id).first()
     wedding = models.Wedding.objects.filter(active=True).first()
-    food = models.Food.objects.all()
+    food = models.Food.objects.filter(guest_id=guest.id).first()
     form = forms.FoodQuestionnaire()
+    if request.method == 'POST':
+        form = forms.FoodQuestionnaire(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.guest_id = guest
+            obj.save()
+            return redirect(get_profile, user_id=request.user.id)
     context = {
-        'user': user,
         'guest': guest,
         'wedding': wedding,
         'food': food,
@@ -270,8 +276,15 @@ def edit_food(request, user_id):
     user = get_object_or_404(User, id=user_id)
     guest = get_object_or_404(models.Guest, user_id=user.id)
     wedding = models.Wedding.objects.filter(active=True).first()
-    food = models.Food.objects.all()
-    form = forms.FoodQuestionnaire(instance=guest)
+    food = models.Food.objects.filter(guest_id=guest.id).first()
+    form = forms.FoodQuestionnaire(instance=food)
+    if request.method == 'POST':
+        form = forms.FoodQuestionnaire(request.POST, instance=food)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.guest_id = guest
+            obj.save()
+            return redirect(get_profile, user_id=request.user.id)
     context = {
         'user': user,
         'guest': guest,

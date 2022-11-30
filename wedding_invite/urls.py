@@ -35,6 +35,6 @@ urlpatterns = [
     path('edit_profile/<user_id>', views.edit_profile, name='edit_profile'),
     path('add_song/', views.get_add_song, name='get_add_song'),
     path('delete_song/<song_id>', views.delete_song, name='delete_song'),
-    path('add_food/<user_id>', views.add_food, name='add_food'),
+    path('add_food/', views.add_food, name='add_food'),
     path('edit_food/<user_id>', views.edit_food, name='edit_food'),
 ]

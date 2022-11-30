@@ -84,16 +84,14 @@
                     {% if wedding.starter1 == "" and wedding.main1 == "" and wedding.dessert1 == "" %}
                     <p class="text-centre card-text">The food questionnaire has not been published yet, please check
                         back later.</p>
-                    {% else %}
-                    {% if food.id != "" %}
+                    {% elif food.starter == "" and food.main == "" and food.dessert == "" %}
                     <div class="button-container mx-auto">
-                        <a href="#">Amend food choices</a>
+                        <a href="/add_food/" class="btn btn-primary">Take food questionnaire</a>
                     </div>
                     {% else %}
                     <div class="button-container mx-auto">
-                        <a href="#">Take food questionnaire</a>
+                        <a href="/edit_food/{{ user.id }}" class="btn btn-primary">Amend food choices</a>
                     </div>
-                    {% endif %}
                     {% endif %}
                 </div>
             </div>
