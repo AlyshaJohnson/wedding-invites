@@ -114,6 +114,16 @@ div > a:hover {
     text-align: center;
 }
 
+.button-container button {
+    background-color: #a2b597;
+    border: 2px ridge #a2b597;
+}
+
+.button-container button:hover {
+    background-color: #a2b597;
+    border: 2px grove #a2b597;
+}
+
 /* --------------------------------- Base.html */
 
 .user-name {
@@ -200,4 +210,30 @@ div > a:hover {
     height: 50px;
     border-radius: 50%;
     background-color: #BD8185;
+}
+
+.rsvp-count {
+    border-right: 2px solid #a2b597;
+}
+
+.food-count {
+    border-right: 2px solid #a2b597;
+}
+
+.send-invite {
+    width: 125px;
+}
+
+.send-invite a {
+    background-color: #a2b597;
+    border: 2px ridge #a2b597;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+.send-invite a:hover {
+    background-color: #a2b597;
+    border: 2px ridge #576151;
 }

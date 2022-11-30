@@ -23,7 +23,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', views.get_sign_in, name='get_sign_in'),
     path('invite/', views.get_invite, name='get_invite'),
-    path('register/', views.register_request, name='register'),
+    path('register/<email>', views.register_request, name='register'),
     path('logout', views.logout_request, name='logout'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='invite/password/password_reset_done.html'), name='password_reset_done'),  # noqa
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="invite/password/password_reset_confirm.html"), name='password_reset_confirm'),  # noqa
@@ -37,4 +37,5 @@ urlpatterns = [
     path('delete_song/<song_id>', views.delete_song, name='delete_song'),
     path('add_food/', views.add_food, name='add_food'),
     path('edit_food/<user_id>', views.edit_food, name='edit_food'),
+    path('send_message/', views.send_message, name='send_message'),
 ]

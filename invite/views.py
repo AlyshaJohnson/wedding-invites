@@ -14,6 +14,9 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.decorators import login_required
 from wedding_invite import settings
 
+# guest list emails
+to = models.Guest.objects.filter(status=1).values('first_name', 'last_name', 'email')  # noqa
+
 
 def get_sign_in(request):
     wedding = models.Wedding.objects.filter(active=True).first()
@@ -154,12 +157,18 @@ def get_profile(request, user_id):
     wedding = models.Wedding.objects.filter(active=True).first()
     food = models.Food.objects.all()
     song = models.Song.objects.filter(guest=guest)
+    guest_active = models.Guest.objects.filter(status=1)
+    guest_draft = models.Guest.objects.filter(status=0)
+    rsvp = models.Guest.objects.exclude(RSVP=None)
     context = {
         'user': user,
         'guest': guest,
         'wedding': wedding,
         'food': food,
         'song': song,
+        'guest_active': guest_active,
+        'guest_draft': guest_draft,
+        'rsvp': rsvp
     }
     return render(request, 'invite/profile.html', context)
 
@@ -293,3 +302,58 @@ def edit_food(request, user_id):
         'form': form,
     }
     return render(request, 'invite/edit_food.html', context)
+
+
+@login_required(login_url='/')
+def send_message(request):
+    if request.user.is_staff is True:
+        guest = models.Guest.objects.filter(user_id=request.user.id).first()
+        wedding = models.Wedding.objects.filter(active=True).first()
+        form = forms.MessageForm()
+        if request.method == 'POST':
+            form = forms.MessageForm(request.POST)
+            if form.is_valid():
+                if 'send' in request.POST:
+                    obj = form.save(commit=False)
+                    obj.guest_id = guest
+                    obj.status = 1
+                    obj.save()
+                    subject = obj.title
+                    message = obj.description
+                    from_admin = guest.email
+                    send_mail(subject, message, from_admin, to, fail_silently=True)  # noqa
+                elif 'save' in request.POST:
+                    obj = form.save(commit=False)
+                    obj.guest_id = guest
+                    obj.status = 0
+                    obj.save()
+            return redirect("/invite/")
+        context = {
+            'guest': guest,
+            'wedding': wedding,
+            'form': form,
+        }
+        return render(request, 'invite/send_message.html', context)
+    else:
+        return redirect('/invite/')
+
+
+def send_invite(request):
+    user = get_object_or_404(User, id=user_id)
+    guest = get_object_or_404(models.Guest, user_id=user.id)
+    wedding = models.Wedding.objects.filter(active=True).first()
+    subject = "You're invited to {{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}'s Wedding"  # noqa
+    email_template_name = "invite/password/password_reset_email.txt"
+    c = {
+        'to': to,
+        'wedding': wedding,
+        'email': user.email,
+        'domain': 'wdg-invite.herokuapp.com',
+        'site_name': 'Website',
+        'user': user,
+        'protocol': 'http',
+    }
+    message = render_to_string(email_template_name, c)
+    from_admin = guest.email
+    send_mail(subject, message, from_admin, to.email, fail_silently=True)  # noqa
+    return redirect(get_profile, user_id=request.user.id)

@@ -1,0 +1,9 @@
+Dear {{ to.first_name }},
+
+You have been invited to {{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}'s Wedding.
+
+To get further information, please create an account from the following link:
+{{ protocol }}://{{ domain }}{% url 'register/{{ to.email }}' %}
+
+We're excited to see you there!
+{{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}

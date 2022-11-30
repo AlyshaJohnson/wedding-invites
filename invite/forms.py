@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Wedding, Guest, Song, Food
+from .models import Wedding, Guest, Song, Food, Message
 
 
 class NewUserForm(UserCreationForm):
@@ -82,3 +82,12 @@ class FoodQuestionnaire(forms.ModelForm):
     class Meta:
         model = Food
         fields = ["starter", "main", "dessert", "allergies", "diet"]  # noqa
+
+
+class MessageForm(forms.ModelForm):
+    title = forms.TextInput()
+    description = forms.JSONField
+
+    class Meta:
+        model = Message
+        fields = ["title", "description"]
