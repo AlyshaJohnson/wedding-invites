@@ -1,21 +1,18 @@
 {% extends "invite/base.html" %}
-
 {% block content %}
-
 <div class="container">
-    <div class="mx-auto uppercase mt-2" style="width: 100px;">
-        <h2>Gallery</h2>
-    </div>
-    <div class="card-columns">
-        {% for image in images %}
-        <div class="card gallery-image m-1">
-            <img src="{{ image.file.url }}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">{{ image.description }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+   <div class="mx-auto uppercase mt-2" style="width: 100px;">
+      <h2>Gallery</h2>
+   </div>
+   <div class="card-columns">
+      {% for image in images %}
+      <div class="card gallery-image m-1">
+         <img src="{{ image.file.url }}" class="card-img-top" alt="...">
+         <div class="card-body">
+            <p class="card-text">{{ image.description }}</p>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
 </div>
-
 {% endblock %}

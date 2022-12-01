@@ -1,27 +1,23 @@
 {% extends "invite/base.html" %}
-
 {% block content %}
-
 {% load crispy_forms_tags %}
-
 <div class="container w-75 py-5">
-	<div class="card">
-		<div class="card-body">
-			<h2 class="card-title">Send message</h2>
-			<hr>
-			<div class="card-text">
-				<form method="POST">
-					{% csrf_token %}
-					{{ form|crispy }}
-					<hr>
-					<div class="mx-auto button-container">
-						<button class="btn btn-primary" type="submit" name="send">Save and send</button>
-						<button class="btn btn-primary" type="submit" name="save">Save as draft</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+   <div class="card">
+      <div class="card-body">
+         <h2 class="card-title">Send message</h2>
+         <hr>
+         <div class="card-text">
+            <form method="POST">
+               {% csrf_token %}
+               {{ form|crispy }}
+               <hr>
+               <div class="mx-auto button-container">
+                  <button class="btn btn-primary" type="submit" name="send">Save and send</button>
+                  <button class="btn btn-primary" type="submit" name="save">Save as draft</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
 </div>
-
 {% endblock %}

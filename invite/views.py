@@ -155,7 +155,7 @@ def get_profile(request, user_id):
     user = get_object_or_404(User, id=user_id)
     guest = models.Guest.objects.filter(user_id=user_id).first()
     wedding = models.Wedding.objects.filter(active=True).first()
-    food = models.Food.objects.all()
+    food = models.Food.objects.filter(guest_id=guest.id)
     song = models.Song.objects.filter(guest=guest)
     guest_active = models.Guest.objects.filter(status=1)
     guest_draft = models.Guest.objects.filter(status=0)
