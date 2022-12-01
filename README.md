@@ -297,9 +297,7 @@ Using tools such as W3C validator, Jigsaw and Lighthouse gives visibility of any
 
 **JS**
 - [JSHint](https://jshint.com/) was used to check for errors in the JS code.
-- For script.js, there were <insert report number> errors and <insert report number> warnings.
-- For instructions.js, there were <insert report number> errors and <insert report number> warnings.
-<insert any methods used to reduce number of errors and warnings>
+- For script.js, there were 0 errors and 11 warnings.
 
 **Performance**
 - Results can be seen through the official [Lighthouse](<insert link to report>) report.

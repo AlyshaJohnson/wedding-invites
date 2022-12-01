@@ -28,7 +28,7 @@ function makeTimer() {
     clearInterval(x);
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
-};
+}
 
 setInterval(makeTimer, 1000);
 
@@ -51,7 +51,7 @@ function initMap() {
     center: mapLocation,
     zoom: 9,
   });
-  addMarkers()
+  addMarkers();
 }
 
 function initEventListeners() {
@@ -74,19 +74,13 @@ function makeActive(event) {
 
 function getLocation() {
   if (activeButton[0] == venue1Button) {
-    latitude = Number(venue1Lat)
-    longitude = Number(venue1Lon)
+    latitude = Number(venue1Lat);
+    longitude = Number(venue1Lon);
   } else if (activeButton[0] == venue2Button) {
-    latitude = Number(venue2Lat)
-    longitude = Number(venue2Lon)
+    latitude = Number(venue2Lat);
+    longitude = Number(venue2Lon);
   }
-  mapLocation = { lat: latitude, lng: longitude }
-}
-
-function removeMarkers() {
-  if (markers.length >= 1) {
-    markers.setMap(null)
-  }
+  mapLocation = { lat: latitude, lng: longitude };
 }
 
 function addMarkers() {
