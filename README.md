@@ -1,12 +1,12 @@
 # Project Portfolio 4 - 
 
-Purpose: 
+Purpose: A wedding invite generator based on user input.
 
-Aim:
+Aim: To create and manage wedding invites and guest list, so party-goers can respond with RSVP and preferences.
 
-![Responsive Mockup](./wedding-invites/static/media/readme_images/responsive_mockup.jpg/)
+![Responsive Mockup](/static/media/readme_images/responsive_mockup.jpg/)
 
-The live link can be found here - <insert link>
+The live link can be found here - https://wdg-invite.herokuapp.com/invite/
 
 ## 1. Design and Development
 
@@ -16,13 +16,13 @@ For the design of this Wedding Invite app, the 5 pillars of User Experience Desi
 
 Initial interviews with the stakeholder were conducted to understand their high-level requirements for the app. This allowed further research to be conducted into user profiles / groups benefitting.
 
-The target user audience…
-
-Competitor research was then carried out...
+Competitor research was then carried out on similar sites to get an idea of what is currently in the market.
 
 ### 1.2 Scope
 
 A brainstorming session was held with the customer to generate user themes and epics, which user stories can then be generated from. Once the user stories had been generated and confirmed, they were prioritised and time bound. For a full list of all user stories, please click [here](https://github.com/AlyshaJohnson/project-portfolio-4/issues?q=).
+
+![Brainstorm](/static/media/readme_images/brainstorm.png)
 
 The SP, or Story Point, is a relative prediction of the time taken to complete the user story against a baseline. The baseline user story was "Create Account".
 
@@ -184,33 +184,49 @@ The features deployed for this app are as follows:
 
 **Invite**
 
+The invite uses the information from the wedding object to display the relevant information to the user.
+
 ![Invite](/static/media/readme_images/invite.png)
 
 **Countdown Clock**
+
+A countdown clock to the big day. This uses the admin input of wedding date and time to count down to.
 
 ![Clock](/static/media/readme_images/clock.png)
 
 **Venue Information**
 
+The venue information is gathered from the wedding object. The site uses google maps api's to generate the latitude and longitude coordinates from the venue address input and displays these on the map. The venue elements on the screen are buttons to allow the user to toggle between the two venues on the map. 
+
 ![Venue](/static/media/readme_images/venue.png)
 
 **List of hotels**
+
+A list of hotels generated from the hotels object in the database.
 
 ![Hotels](/static/media/readme_images/hotels.png)
 
 **Gallery**
 
+An image gallery showing images from the gallery object in the database.
+
 ![Gallery](/static/media/readme_images/gallery.png)
 
 **Profile page with editting**
+
+The profile page shows information about the user. This information can be editted by the user.
 
 ![Profile](/static/media/readme_images/profile.png)
 
 **Overview for admin**
 
+The overview to the admin user, gives a count of the number of certain objects in the database, for example, the number of RSVPs recieved verses the total number of guests.
+
 ![Admin](/static/media/readme_images/admin.png)
 
 **Send messages**
+
+Allows the admin to send an email to the guest list with any updates necessary before the big day.
 
 ![Message](/static/media/readme_images/message.png)
 
@@ -234,7 +250,7 @@ There is an addition of 3 weeks worth of work still to perform to give the custo
 
 Multiple layers of testing were performed on this project including:
 - Bug capturing during development
-- Input form validation
+- Automated Testing
 - Code validation testing 
 - User experience tesing
 
@@ -246,19 +262,26 @@ As the project was developed and coded, developer testing was conducted to reduc
 
 Bugs were captured throughout the course of the project using the 'issues' object within GitHub. 
 
-**Input Validator Testing**
+**Automated Testing**
+
+Some automated tests were written for testing views of the app. This is handy in case packages need upgrading, or major changes to the app are made. In this case, automated tests can be run first, to find obvious errors caused by the changes. After that, manual testing should still be performed.
+
+The tests are run by entering 'python3 manage.py test' in the terminal window (inside the project folder). This will automatically run all test. If running tests in quick succession, it's recommended to add --keepdb at the end, so the database doesn't have to be rebuild for every test cycle. The test in the suite for this project all pass, but if one would fail, it would be displayed with a clear error message, so errors can be solved.
+
+Unfortunately, the test datebase failed to be created and therefore could not run the tests.
+
+![Automated Tests](/static/media/readme_images/auto-test.png)
 
 **Browser / Device testing**
 
 The development of this app was conducted on Google Chrome, therefore extensive testing was conducted on this browser. This was used as a benchmark against Firefox and Safari.
 
 The elements of testing conducted on each browser are:
-<insert list of testing performed and why - see example below>
-- User Experience - what does the quiz look like; is the flow through the quiz the same; are all elements where they are expected?
-- Functionality - do the buttons work as expected; does the question counter count?
+- User Experience - what does the app look like; is the flow through the app the same; are all elements where they are expected?
+- Functionality - do the buttons work as expected; do the forms work as expected?
 - Performance - how responsive is the site?
 
-The user experience is consistent on Chrome, Firefox and Safari. The instruction videos in Safari do not load - this bug has been captured.
+The user experience is consistent on Chrome, Firefox and Safari.
 
 Responsive design is important, CSS code had to be amended and adjusted to make sure the app could work on a number of devices. There were a number of user experience bugs that were produced when testing. These have now been fixed in the code.
 
@@ -290,47 +313,83 @@ As part of the performance test through Lighthouse, some changes were made:
 This app has been tested by a small group of 10 users in which some feedback was captured in the design and some errors in functionality and spelling were corrected.
 
 UI improvements made:
-- <list any improvements to UI that were made here>
+- Invite too small for mobile devices
 
 Errors / bug fixes:
-- <list errors/bugs that were found, what the problem was and how they were fixed>
+- Invite too small for mobile devices
+- RSVP form not submitting
 
 ### 4.4 Unfixed Bugs
 
-- <list unfixed bugs here>
+- Invite too small for mobile devices
+- RSVP form not submitting
 
 ## 5. Deployment
 
-This website was deployed using GitPages and following the below steps:
+The master branch of this repository has been used for the deployed version of this application.
 
-GitHub pages deployment
-1. Log in to GitHub
-2. In the Repository section, select the project repository that you want to deploy
-3. In the menu located at the top of this section, click 'Settings'
-4. Select 'Pages' on the left-hand menu - this is around halfway down
-5. In the source section, select branch 'Master' and save
-6. The page is then given a site URL which will be seen above the source section, it will look like the following:
+### 5.1 Using Github & Gitpod
 
-![](/static/media/readme_imagesgithub_deployment.jpeg/)
+To deploy this command-line interface application, the [Code Institute Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template) was used, as this enables the application to be properly viewed on Heroku using a mock terminal. 
 
-Please note it can take a while for this link to become fully active.
+- Click the `Use This Template` button.
+- Add a repository name and brief description.
+- Click the `Create Repository from Template` to create your repository.
+- To create a Gitpod workspace you then need to click `Gitpod`, this can take a few minutes.
+- When you want to work on the project it is best to open the workspace from Gitpod (rather than Github) as this will open your previous workspace rather than creating a new one. You should pin the workspace so that it isn't deleted.
+-  Committing your work should be done often and should have clear/explanatory messages, use the following commands to make your commits:
+    - `git add .`: adds all modified files to a staging area
+    - `git commit -m "A message explaining your commit"`: commits all changes to a local repository.
+    - `git push`: pushes all your committed changes to your Github repository.
 
-Forking the GitHub Repository
-To make changes to this repository without affecting it, a copy can be made by 'Forking' it. This ensures the original repository remains unchanged.
+*Forking the GitHub Repository*
+
+To make changes to a repository without affecting it, a copy can be be made by 'Forking' it. This ensures the original repository remains unchanged.
+
 1. Find the relevant GitHub repository
 2. In the top right corner of the page, click the Fork button (under account)
-3. The repository has now been 'Forked' and you have a copy to work on
+3. The repository has now been 'Forked' and a copy has been made
 
-Cloning the GitHub Repository
-Cloning a repository will allow a local version of the repository will be downloaded so can be worked on. Cloning is also a great way to backup work.
+*Cloning the GitHub Repository*
+
+Cloning a repository will allow a local version of the repository to be downloaded and worked on. Cloning is also be a great way to backup work.
+
 1. Find the relevant GitHub repository
 2. Press the arrow on the Code button
 3. Copy the link that is shown in the drop-down
-4. Now open Gitpod & select the directory location
-5. In the terminal type 'git clone' & then paste the link copied from GitHub
+4. Now open Gitpod & select the directory location where the clone is to be created
+5. In the terminal type 'git clone' & then paste the link copied in GitHub
 6. Press enter and a local clone will be created.
 
-The ‘<insert app name>’ was deployed with the help of the Heroku app.
+### 5.2 Creating an Application with Heroku
+
+Following the below steps using the Code Institute tutorial:
+
+- The following command in the Gitpod CLI will create the relevant files needed for Heroku to install project dependencies `pip3 freeze --local > requirements.txt`. Please note this file should be added to a .gitignore file to prevent the file from being committed. Int he instance of this project, no requirements were created as there were no project dependencies.
+
+1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; create an account if needed.
+2. Click the `New` dropdown and select `Create New App`.
+3. Enter a name for the new project - all Heroku apps need to have a unique name.
+4. Select the region.
+
+*Heroku Settings*
+Environment Variables need to be set up - this is a key step to ensuring the application is deployed properly.
+- In the Settings tab, click on `Reveal Config Vars` and set the following variables:
+    - If using credentials they will need to be added as a variable, the key is the name 'CREDS' and the value is the contents of the creds JSON
+    - Add key: `PORT` & value `8000`
+- Buildpacks are also required for proper deployment, simply click `Add buildpack` and search for the ones required.
+    - For this project, `Python` and `Node.js` were needed, in this order.
+
+*Heroku Deployment*
+In the Deploy tab:
+1. Connect the Heroku account to the Github Repository following these steps:
+    1. Click on the `Deploy` tab and choose `Github-Connect to Github`.
+    2. Enter the GitHub repository name and click on `Search`.
+    3. Choose the correct repository for the application and click on `Connect`.
+2. A choice is given to deploy the project manually or automatically, automatic deployment will generate a new application every time a change is pushed to Github, whereas manual deployment requires the `Deploy Branch` button to be pushed whenever a change is made.
+3. Once the deployment method has been chosen, the application will be built and can be opened using the `Open App` button at the top of the page.
+
+![heroku-deployment](/static/media/readme_images/heroku_deployment.png)
 
 ## 6. Credits
 
@@ -342,30 +401,26 @@ Logos and Fonts:
 
 Tutorials and support:
 - General guidance, information and limitations on elements, attributes, and methods from [w3schools](https://www.w3schools.com/default.asp) and [MDN Web Docs](https://developer.mozilla.org/en-US/)
-- <insert list of tutorials followed>
-- The many people who 'beta tested' the quiz app.
+- [realpython](https://realpython.com/customize-django-admin-python/
+https://ordinarycoders.com/blog/article/django-user-register-login-logout) tutorials on how to do user registration and log in, plus amending the admin page views.
+- The many people who 'beta tested' the app.
 
 ### 6.2 Media
 
 Any photos used throughout the app are stock imagery from the following services:
 - [unsplash](https://unsplash.com/)
-- [FreeImages](https://www.freeimages.com/)
-- [PikWizard](https://pikwizard.com/)
 
 Credit goes to the following artists for use of their images on the site:
 - [Hannah Olinger](https://unsplash.com/@hannaholinger) on Unspalsh for the couple images in the gallery for the demo.
 - [Evie Shaffer](https://unsplash.com/@evieshaffer) on Unsplash for the invite images.
 - [Alex Grey](https://unsplash.com/@sharonmccutcheon) on Unsplash for the background image.
-  
-
-<insert any other media used throughout the app/site here>
 
 ### 6.3 Research
 
 As mentioned in the design section, competitor research was conducted. These are credited below:
-- <insert list of research links>
-
-https://realpython.com/customize-django-admin-python/
-https://ordinarycoders.com/blog/article/django-user-register-login-logout
+- [Greenvelope](greenvelope.com)
+- [Paperless Post](paperlesspost.com)
 
 ### 6.4 Special Thanks
+
+Special thanks goes to the code institute community for helping when I was in a bind, especially to Ryan O'Neill and Dirk Ornee.
