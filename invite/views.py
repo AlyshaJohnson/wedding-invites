@@ -40,7 +40,7 @@ def get_sign_in(request):
         'login_form': form,
         'wedding': wedding
     }
-    return render(request=request, template_name='index.html', context=context)  # noqa
+    return render(request=request, template_name='invite/index.html', context=context)  # noqa
 
 
 def register_request(request):
@@ -58,7 +58,7 @@ def register_request(request):
         'register_form': form,
         'wedding': wedding
     }
-    return render(request=request, template_name="register.html", context=context)  # noqa
+    return render(request=request, template_name="invite/register.html", context=context)  # noqa
 
 
 def logout_request(request):
@@ -77,7 +77,7 @@ def password_reset_request(request):
             if associated_users.exists():
                 for user in associated_users:
                     subject = "Password Reset Requested"
-                    email_template_name = "password/password_reset_email.txt"  # noqa
+                    email_template_name = "invite/password/password_reset_email.txt"  # noqa
                     c = {
                         "email": user.email,
                         'domain': '127.0.0.1:8000',
@@ -92,14 +92,14 @@ def password_reset_request(request):
                         send_mail(subject, email, 'admin@example.com', [user.email], fail_silently=False)  # noqa
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
-                    return redirect("/password_reset/done/")
+                    return redirect("invite/password_reset/done/")
             messages.error(request, 'An invalid email has been entered.')
     password_reset_form = PasswordResetForm()
     context = {
         'password_reset_form': password_reset_form,
         'wedding': wedding
     }
-    return render(request=request, template_name="password/password_reset.html", context=context)  # noqa
+    return render(request=request, template_name="invite/password/password_reset.html", context=context)  # noqa
 
 
 @login_required(login_url='/')
@@ -119,7 +119,7 @@ def get_invite(request):
         'guest': guest,
         'wedding': wedding,
     }
-    return render(request, 'invite.html', context)
+    return render(request, 'invite/invite.html', context)
 
 
 @login_required(login_url='/')
@@ -136,7 +136,7 @@ def get_info(request):
         'hotel': hotel,
         'key': key,
     }
-    return render(request, 'info.html', context)
+    return render(request, 'invite/info.html', context)
 
 
 @login_required(login_url='/')
@@ -147,7 +147,7 @@ def get_gallery(request):
         'wedding': wedding,
         'images': images
     }
-    return render(request, 'gallery.html', context)
+    return render(request, 'invite/gallery.html', context)
 
 
 @login_required(login_url='/')
@@ -170,7 +170,7 @@ def get_profile(request, user_id):
         'guest_draft': guest_draft,
         'rsvp': rsvp
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'invite/profile.html', context)
 
 
 @login_required(login_url='/')
@@ -208,7 +208,7 @@ def edit_profile(request, user_id):
             'profile_form': profile_form,
             'diet_form': diet_form
         }
-    return render(request, 'edit_profile.html', context)
+    return render(request, 'invite/edit_profile.html', context)
 
 
 @login_required(login_url='/')
@@ -231,7 +231,7 @@ def get_add_song(request):
         'wedding': wedding,
         'form': form
     }
-    return render(request, 'add_song.html', context)
+    return render(request, 'invite/add_song.html', context)
 
 
 def delete_song(request, song_id):
@@ -254,7 +254,7 @@ def get_party_profile(request, user_id):
         'food': food,
         'song': song,
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'invite/profile.html', context)
 
 
 @login_required(login_url='/')
@@ -277,7 +277,7 @@ def add_food(request):
         'food': food,
         'form': form,
     }
-    return render(request, 'add_food.html', context)
+    return render(request, 'invite/add_food.html', context)
 
 
 @login_required(login_url='/')
@@ -301,7 +301,7 @@ def edit_food(request, user_id):
         'food': food,
         'form': form,
     }
-    return render(request, 'edit_food.html', context)
+    return render(request, 'invite/edit_food.html', context)
 
 
 @login_required(login_url='/')
@@ -333,7 +333,7 @@ def send_message(request):
             'wedding': wedding,
             'form': form,
         }
-        return render(request, 'send_message.html', context)
+        return render(request, 'invite/send_message.html', context)
     else:
         return redirect('/invite/')
 
@@ -343,7 +343,7 @@ def send_invite(request):
     guest = get_object_or_404(models.Guest, user_id=user.id)
     wedding = models.Wedding.objects.filter(active=True).first()
     subject = "You're invited to {{ wedding.couple.first.first_name }} & {{ wedding.couple.last.first_name }}'s Wedding"  # noqa
-    email_template_name = "Invite.txt"
+    email_template_name = "invite/Invite.txt"
     c = {
         'to': to,
         'wedding': wedding,
