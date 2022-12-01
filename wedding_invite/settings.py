@@ -34,6 +34,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['wdg-invite.herokuapp.com', 'localhost']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Application definition
 
