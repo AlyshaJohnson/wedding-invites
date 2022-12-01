@@ -4,34 +4,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 body {
-    font-family: 'Nunito Sans', sans-serif;
-    font-weight: 200;
+	font-family: 'Nunito Sans', sans-serif;
+	font-weight: 200;
 }
 
 .uppercase {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .capitalise {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .text-centre {
-    text-align: center;
+	text-align: center;
 }
 
 .text-right {
-    text-align: right;
+	text-align: right;
 }
 
-.header-banner, 
+.header-banner,
 .user-name,
-.invite-wreath, 
+.invite-wreath,
 .invite-party h3,
 .invite-ceremony h3,
 .invite-rsvp-date h3 {
-    font-family: 'Petit Formal Script', cursive;
-    text-transform: capitalize;
+	font-family: 'Petit Formal Script', cursive;
+	text-transform: capitalize;
 }
 
 #wedding-date,
@@ -39,201 +39,204 @@ body {
 #venue1_lat,
 #venue1_lon,
 #venue2_lat,
-#venue2_lon  {
-    display: none;
+#venue2_lon {
+	display: none;
 }
 
 #countdown {
-    font-size: 3.5em;
+	font-size: 3.5em;
 }
 
 /* --------------------------------- Colors and Backgrounds */
 
 body {
-    background: 
-        #FFF5F6
-        url(../media/images/background.jpg)
-        top center / cover
-        no-repeat
-        fixed;
+	background:
+		#FFF5F6 url(../media/images/background.jpg) top center / cover no-repeat fixed;
 }
 
 header {
-    background-color: #f8f6f7;
-    border: 2px ridge #BD8185;
-    border-radius: 15px;
-    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: #f8f6f7;
+	border: 2px ridge #BD8185;
+	border-radius: 15px;
+	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-nav, nav a {
-    color: #BD8185;
+nav,
+nav a {
+	color: #BD8185;
 }
 
-nav, nav a:hover {
-    color: #574143;
+nav,
+nav a:hover {
+	color: #574143;
 }
 
 .container .card {
-    background-color: #f8f6f7;
-    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+	background-color: #f8f6f7;
+	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-body .btn-primary {
-    background-color: #a2b597;
-    border: 2px ridge #a2b597;
+	background-color: #a2b597;
+	border: 2px ridge #a2b597;
 }
 
 .card-body .btn-primary:hover {
-    background-color: #a2b597;
-    border: 2px groove #576151;
+	background-color: #a2b597;
+	border: 2px groove #576151;
 }
 
-div > a {
-    color: #a2b597;
+div>a {
+	color: #a2b597;
 }
 
-div > a:hover {
-    color: #576151;
+div>a:hover {
+	color: #576151;
 }
 
-.profile-coin > a {
-    color: white
+.profile-coin>a {
+	color: white
 }
 
-.profile-coin > a:hover {
-    color: white;
-    text-decoration: none;
+.profile-coin>a:hover {
+	color: white;
+	text-decoration: none;
 }
 
 .profile-coin:hover {
-    background-color: #574143;
+	background-color: #574143;
 }
 
 .button-container {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 .button-container button {
-    background-color: #a2b597;
-    border: 2px ridge #a2b597;
+	background-color: #a2b597;
+	border: 2px ridge #a2b597;
 }
 
 .button-container button:hover {
-    background-color: #a2b597;
-    border: 2px grove #a2b597;
+	background-color: #a2b597;
+	border: 2px grove #a2b597;
 }
 
 /* --------------------------------- Base.html */
 
 .user-name {
-    border-right: 1px solid #BD8185;
+	border-right: 1px solid #BD8185;
 }
 
 /* --------------------------------- Invite.html */
 
 .invite {
-    width: 800px;
-    background:
-        #eceff6
-        url(../media/images/invite.jpg)
-        top center / cover;
-    box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 800px;
+	background:
+		#eceff6 url(../media/images/invite.jpg) top center / cover;
+	box-shadow: 6px 6px 8px 0 rgba(0, 0, 0, 0.2), 8px 8px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .invite-to {
-    padding-top: 250px;
+	padding-top: 250px;
 }
 
 .invite-wreath {
-    border: 10px double #a2b597;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    box-shadow: 
-        6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset, 
-        8px 8px 20px 0 rgba(0, 0, 0, 0.19),
-        6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset, 
-        8px 8px 20px 0 rgba(0, 0, 0, 0.19);
-    padding-top: 75px;
+	border: 10px double #a2b597;
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	box-shadow:
+		6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset,
+		8px 8px 20px 0 rgba(0, 0, 0, 0.19),
+		6px 6px 8px 0 rgba(0, 0, 0, 0.2) inset,
+		8px 8px 20px 0 rgba(0, 0, 0, 0.19);
+	padding-top: 75px;
 }
 
 /* --------------------------------- Info.html */
 
 @keyframes pulse {
-    from {font-size: 3.5rem; color:#BD8185}
-    to {font-size: 3.0rem; color:#574143}
-  }
+	from {
+		font-size: 3.5rem;
+		color: #BD8185
+	}
 
-  #countdown {
-    animation-name: pulse;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
+	to {
+		font-size: 3.0rem;
+		color: #574143
+	}
+}
 
-.mapholder{
-    height: auto;
-    width: 100%;
+#countdown {
+	animation-name: pulse;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.mapholder {
+	height: auto;
+	width: 100%;
 }
 
 #map {
-    height: 100%;
-  }
+	height: 100%;
+}
 
 #venue1-button,
 #venue2-button {
-    width: 100%;
-    height: 150px;
+	width: 100%;
+	height: 150px;
 }
 
 .image-container {
-    border: 5px inset #BD8185;
+	border: 5px inset #BD8185;
 }
 
 .image-container img {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
 
 /* --------------------------------- Gallery.html */
 
 .gallery-image img {
-    max-width: 500px;
-    height: auto;
+	max-width: 500px;
+	height: auto;
 }
 
 /* --------------------------------- Profile.html */
 
 .profile-coin {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #BD8185;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #BD8185;
 }
 
 .rsvp-count {
-    border-right: 2px solid #a2b597;
+	border-right: 2px solid #a2b597;
 }
 
 .food-count {
-    border-right: 2px solid #a2b597;
+	border-right: 2px solid #a2b597;
 }
 
 .send-invite {
-    width: 125px;
+	width: 125px;
 }
 
 .send-invite a {
-    background-color: #a2b597;
-    border: 2px ridge #a2b597;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
-    padding: 8px;
+	background-color: #a2b597;
+	border: 2px ridge #a2b597;
+	border-radius: 5px;
+	color: white;
+	text-align: center;
+	padding: 8px;
 }
 
 .send-invite a:hover {
-    background-color: #a2b597;
-    border: 2px ridge #576151;
+	background-color: #a2b597;
+	border: 2px ridge #576151;
 }

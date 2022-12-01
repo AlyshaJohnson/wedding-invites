@@ -1,16 +1,16 @@
 # Project Portfolio 4 - 
 
-Purpose:
+Purpose: 
 
 Aim:
 
-![Responsive Mockup](./assets/images/readme/responsive_mockup.jpeg/)
+![Responsive Mockup](./wedding-invites/static/media/readme_images/responsive_mockup.jpg/)
 
 The live link can be found here - <insert link>
 
 ## 1. Design and Development
 
-For the design of this <application>, the 5 pillars of User Experience Design (UXD) were used to cover the strategy, scope, structure, skeleton and surface to make sure the design is intuitive, simple and enjoyable.
+For the design of this Wedding Invite app, the 5 pillars of User Experience Design (UXD) were used to cover the strategy, scope, structure, skeleton and surface to make sure the design is intuitive, simple and enjoyable.
 
 ### 1.1 Strategy
 
@@ -24,46 +24,117 @@ Competitor research was then carried out...
 
 A brainstorming session was held with the customer to generate user themes and epics, which user stories can then be generated from. Once the user stories had been generated and confirmed, they were prioritised and time bound. For a full list of all user stories, please click [here](https://github.com/AlyshaJohnson/project-portfolio-4/issues?q=).
 
-The SP, or Story Point, is a relative prediction of the time taken to complete the user story against a baseline. The baseline user story was <insert user story>.
+The SP, or Story Point, is a relative prediction of the time taken to complete the user story against a baseline. The baseline user story was "Create Account".
 
-To complete all user stories, the predicted time it would take would be <insert no of weeks> weeks. As the customer required a release date of the 1st December 2022, a minimum set of user stories were agreed and reviewed weekly based on <insert no. of SPs> story points possible in the time frame. The final agreed set of user stories were:
+To complete all user stories, the predicted time it would take would be 8 weeks. As the customer required a release date of the 1st December 2022, a minimum set of user stories were agreed and reviewed weekly. The final agreed set of user stories were:
 
-User story #    Title   Description Priority    SP Epic
+| USER STORY # | TITLE                            | PRIORITY |
+|--------------|----------------------------------|----------|
+| #3           | Add new guest                    | Mo       |
+| #16          | Send invite                      | Mo       |
+| #17          | Send messages                    | Mo       |
+| #42          | Admin overview                   | Mo       |
+| #23          | Create food questionnaire        | Mo       |
+| #34          | Respond to questionnaires        | Mo       |
+| #25          | Create playlist                  | S        |
+| #13          | Edit image description           | S        |
+| #26          | Edit additional information      | Co       |
+| #27          | Clear additional information     | Co       |
+| #39          | Combine with other party members | S        |
+| #15          | Delete image                     | S        |
+| #12          | Add image to gallery             | S        |
+| #33          | View information                 | Mo       |
+| #35          | Create account                   | Mo       |
+| #32          | Edit contact information         | Mo       |
+| #18          | Add contact information          | Mo       |
+| #36          | Sign in                          | Mo       |
+| #6           | View guest list                  | Mo       |
+| #20          | Add date of wedding              | Mo       |
+| #31          | Edit venue information           | Mo       |
+| #30          | Edit wedding date                | Mo       |
+| #37          | New password                     | Co       |
+| #5           | Delete guest                     | Mo       |
+| #4           | Edit guest information           | Mo       |
+| #29          | Delete local hotel information   | Co       |
+| #19          | Add venue information            | Mo       |
+| #21          | Add local hotel information      | Co       |
+| #22          | Add additional information       | Co       |
+| #28          | Edit local hotel information     | Co       |
 
 ### 1.3 Structure
 
 From the user stories, content, data, features and functionality can be determined.
 
-**For the content:**
+**For the content / features:**
 
+- Sign in page - directs to invite
+- Sign up page - generated from email
+- Admin overview
+    - Analytics
+        - no. of RSVPs
+        - no. of responses to questionnaires
+        - no. of song requests
+    - Send invite button
+        - Warning of no. of guest who aren't "published"
+- Invitation
+    - Formal invitation to wedding
+    - RSVP form
+- Profile page
+    - Profile information
+    - Song list
+    - Questionnaire answers
+- Information page
+    - Countdown clock
+    - Venue information
+    - Menu
+    - Hotel information
+    - Contact information
+    - Additional information
+- Gallery
+    - View of images stored in database
+    - Description under image
 
 **Data Model:**
 
+The following data model was created:
 
-**For the features / functionality:**
-
+![Data Model](/static/media/readme_images/data_model.jpeg)
 
 ### 1.4 Skeleton
 
 When the structure of the app, features and data model had been determined, a wireframe for each view could be created:
 
-<insert view of app/website>
+**Invite**
+
+![Invite](/static/media/readme_images/wf-invite.png)
+
+**Information Page**
+
+![Info](/static/media/readme_images/wf-info.png)
+
+**Gallery**
+
+![Gallery](/static/media/readme_images/wf-gallery.png)
+
+**Profile**
+
+![Profile](/static/media/readme_images/wf-profile.png)
 
 ### 1.5 Surface
 
 **Colour Palette**
 
-![Colour Palette](./assets/images/readme/color.jpeg)
+![Colour Palette](/static/media/readme_images/colors.jpg)
 
-- The quiz's primary colours are (from left to right) #13443E, #EFEFEF, #F4D1AF and #E86E4C as seen in the picture above. They were derived using the online tool [colormind](http://colormind.io/), to make sure they complement and contrast. The colors are all nuances of green or orange, to mirror nature and enhance the connection with the being green.
-- #13443E is used for headlines and text throughtout the quiz, unless a hyperlink, and as a border colour to emphasise buttons or sections of text. On hover and selection, all buttons turn the colour #13443E to show they are active. It is also used, in conjunction with an opacity of 0.5, as an overlay when the instructions pop-up is active.
-- #EFEFEF is used as the main background colour for the webpage, the instructions pop up and on buttons. On selection or hover on buttons, the text is changed to #EFEFEF to contrast with it's background.
-- #F4D1AF is used as a contrasting background color for the question and results sections.
-- #E86E4C is used minimally to highlight links away from the quiz. It is a brighter colour to contrast with the green.
+- The app's primary colours are (from left to right) #E05F72, #BD8185, #FFF5F6 and #A2B597 as seen in the picture above. These are based of the dark pink colour extracted from the background image.Then using the online tool [colorspace](https://mycolor.space/) to generate the others, to make sure they complement and contrast.
+- #E05F72 is one of the main colours in the background image, and was used to generate the colour theme.
+- #BD8185 is used as the font colour through the majority of the site. It is also used as the border colour in the header and on icon buttons in the nav bar.
+- #FFF5F6 is used as the main background colour on the div-cards to contrast the background image.
+- #A2B597 is used as the button and link colour.
 
 **Typography**
-- Quicksand is used for headings and header elements. The fallback font is sans serif.
-- Dosis is used for all other text elements including paragraphs, button labels, lists, etc. The fallback font is sans serif.
+- Petit Formal Script is used for headings and header elements. The fallback font is cursive.
+- Nunito Sans is used for all other text elements including paragraphs, button labels, lists, etc. The fallback font is sans serif.
 - Both fonts are from Google Fonts.
 
 ## 2. Technologies used
@@ -109,23 +180,61 @@ Several technologies were used to aid the project:
 
 ### 3.1 Existing Features
 
-The features deployed for this quiz are as follows:
+The features deployed for this app are as follows:
 
-<insert feature descriptions and images>
+**Invite**
+
+![Invite](/static/media/readme_images/invite.png)
+
+**Countdown Clock**
+
+![Clock](/static/media/readme_images/clock.png)
+
+**Venue Information**
+
+![Venue](/static/media/readme_images/venue.png)
+
+**List of hotels**
+
+![Hotels](/static/media/readme_images/hotels.png)
+
+**Gallery**
+
+![Gallery](/static/media/readme_images/gallery.png)
+
+**Profile page with editting**
+
+![Profile](/static/media/readme_images/profile.png)
+
+**Overview for admin**
+
+![Admin](/static/media/readme_images/admin.png)
+
+**Send messages**
+
+![Message](/static/media/readme_images/message.png)
 
 ### 3.2 Future Features
 
-There is an addition of <insert no. of weeks> weeks worth of work still to perform to give the customer everything they require. This includes the following user stories:
+There is an addition of 3 weeks worth of work still to perform to give the customer everything they require. This includes the following user stories:
 
-User story #    Title   Description Priority    SP Epic
+| USER STORY # | TITLE                        | PRIORITY |
+|--------------|------------------------------|----------|
+| #2           | Download CSV template        | Co       |
+| #24          | Upload menu                  | S        |
+| #14          | Edit image order             | S        |
+| #11          | Change invitation font       | W        |
+| #10          | Import invitation background | W        |
+| #9           | Select invite template       | W        |
+| #8           | Link accounts                | S        |
+| #7           | Export data                  | Co       |
+| #1           | Upload guest list            | Co       |
 
 ## 4. Testing
 
 Multiple layers of testing were performed on this project including:
-- TDD testing
 - Bug capturing during development
 - Input form validation
-- API mocking
 - Code validation testing 
 - User experience tesing
 
@@ -202,7 +311,7 @@ GitHub pages deployment
 5. In the source section, select branch 'Master' and save
 6. The page is then given a site URL which will be seen above the source section, it will look like the following:
 
-![](./assets/images/readme/github_deployment.jpeg/)
+![](/static/media/readme_imagesgithub_deployment.jpeg/)
 
 Please note it can take a while for this link to become fully active.
 
