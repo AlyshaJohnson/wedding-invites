@@ -290,22 +290,21 @@ Responsive design is important, CSS code had to be amended and adjusted to make 
 Using tools such as W3C validator, Jigsaw and Lighthouse gives visibility of any code, scripts or elements that are causing any errors. The results for the site are as follows:
 
 **HTML**
-- <insert report number> errors were returned when passing through the official [W3C validator](<insert link to report>)
+- 0 errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fwdg-invite.herokuapp.com%2F)
 
 **CSS**
-- <insert report number> errors were found when passing through the official [(Jigsaw) validator](<insert link to report>)
+- 0 errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwdg-invite.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 **JS**
 - [JSHint](https://jshint.com/) was used to check for errors in the JS code.
 - For script.js, there were 0 errors and 11 warnings.
 
 **Performance**
-- Results can be seen through the official [Lighthouse](<insert link to report>) report.
+- Results can be seen through the official [Lighthouse](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Fwdg-invite.herokuapp.com%2Finvite%2F&strategy=mobile&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext) report.
 
 As part of the performance test through Lighthouse, some changes were made:
-- Accessibility (aria-label) tags were implemented on all buttons to improve the score from 82 to 100.
+- Accessibility (aria-label) tags were implemented on all buttons to improve the score.
 - The cache policy was amended to increase the length of number of seconds the browser should cache the resource.
-- The image file sizes needed to be compressed so reduce the impact on performance. This was successfully done using [tinyPNG](https://tinypng.com/).
 
 ### 4.3 User Testing
 This app has been tested by a small group of 10 users in which some feedback was captured in the design and some errors in functionality and spelling were corrected.
@@ -314,7 +313,7 @@ UI improvements made:
 - Invite too small for mobile devices
 
 Errors / bug fixes:
-- Invite too small for mobile devices
+- Invite too small for mobile devices.
 - RSVP form not submitting
 
 ### 4.4 Unfixed Bugs
