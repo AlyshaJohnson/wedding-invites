@@ -421,4 +421,4 @@ As mentioned in the design section, competitor research was conducted. These are
 
 ### 6.4 Special Thanks
 
-Special thanks goes to the code institute community for helping when I was in a bind, especially to Ryan O'Neill and Dirk Ornee.
+Special thanks goes to the Code Institute community for helping when I was in a bind, especially to Ryan O'Neill and Dirk Ornee.
